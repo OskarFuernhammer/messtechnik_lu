@@ -1,0 +1,19 @@
+\babel@toc {german}{}
+\contentsline {chapter}{\numberline {1}U/I/R-Messung und Messwerke}{1}
+\contentsline {chapter}{\numberline {2}Statistik und Leistungsmessung}{2}
+\contentsline {section}{\numberline {2.1}Einleitung}{2}
+\contentsline {section}{\numberline {2.2}Strommessung}{2}
+\contentsline {section}{\numberline {2.3}Widerstandsmessung}{2}
+\contentsline {section}{\numberline {2.4}Impedanzmessung}{2}
+\contentsline {section}{\numberline {2.5}Fehlerforpflanzung}{2}
+\contentsline {section}{\numberline {2.6}Ipedazmessung mit LCR-Meter}{2}
+\contentsline {section}{\numberline {2.7}5/8-Methode}{2}
+\contentsline {section}{\numberline {2.8}Leistungsmessung}{2}
+\contentsline {chapter}{\numberline {3}Messbr\IeC {\"u}cken und Messverst\IeC {\"a}rker}{3}
+\contentsline {chapter}{\numberline {4}Signal\IeC {\"u}bertragung}{4}
+\contentsline {chapter}{\numberline {5}Abtastung und automatisierte Messsysteme}{5}
+\contentsline {section}{\numberline {5.1}Einleitung}{5}
+\contentsline {section}{\numberline {5.2}Spannungsmessung}{5}
+\contentsline {section}{\numberline {5.3}Umwandlung von singleended auf differentielle Signale}{5}
+\contentsline {section}{\numberline {5.4}Automatisierte Messsysteme}{5}
+\contentsline {chapter}{\numberline {6}Sensoren und frequenzselektive Messverfahren}{6}
