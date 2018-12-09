@@ -4,6 +4,8 @@
 \usepackage{graphicx}
 \usepackage[german]{babel}
 \usepackage{titlesec}
+\usepackage{siunitx}
+
 
 \titleformat{\chapter}
   {\Large\bfseries} % format
@@ -12,5 +14,6 @@
   {\huge}   
 
 % custom commands
-\newcommand{\F}[1]{\ensuremath{\bm{F}_{#1}}} %kraftvektor mit index als argument
-\newcommand{\E}[1]{\ensuremath{\bm{E}_{#1}}} %elektrische feldstärke mit index als arg
+
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+
