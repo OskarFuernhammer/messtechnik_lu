@@ -15,13 +15,6 @@
 	\caption{Grundlegende Information der 1. Laborübung}
 \end{table}
 
-Verwendete Messgeräte:
-\begin{itemize}
-	\item{A}
-	\item{B}
-\end{itemize}
-
-
 \begin{table}[h]
 	\centering
 	\begin{tabular}{ c | c }
@@ -46,8 +39,6 @@ Funktionsgenerator		& Agilent U1232A 		\\
 
 \section{Spannungs-, Strom- und Widerstandsmessung}
 
-Diese Übung setzt sich zusammen aus der XX
-
 \subsection{Spannungsmessung}
 \subsubsection{Berechnung des Innenwiderstandes des Voltmeters}
 In der ersten Übung soll der Innenwiderstand des Voltmeters ermittelt werden. Die Schaltung zur Messung des Spannungswertes wird laut Abb. aufgebaut
@@ -57,17 +48,18 @@ TODO: SCHALTUNG		\\
 Dieser Schaltung wurde mit einer Spannung $U$ von 10V versorgt. Der mit einem Ohmmeter gemessenen Widerstand $R_1$ ergab 100,2k$\Omega$. Die Spannung $U_V$ am Voltmeter betrug 9,90V.	\\
 ~\\
 Die Spannung am Widerstand $R_1$ wird aus der Differenz von der Eingangsspannung und der Spannung am Voltmeter berechnet: 
-\begin{center}
-$U_{R1}$ = $U - U_V$ = 0,1V
-\end{center}
+\begin{equation}
+	U_{R1} = U - U_V = 0,1V
+	\label{eq:1}
+\end{equation}
 Der Strom durch $R_1$ ergibt sich als Quotient aus der berechneten Spannung und dem Widerstand $R_1$:
-\begin{center}
-$I = \dfrac{U_{R1}}{R_1}$ = $\dfrac{U - U_V}{R_1}$ = $0,998\mu$A
-\end{center}
+\begin{equation}
+	I = \dfrac{U_{R1}}{R_1} = \dfrac{U - U_V}{R_1} = 0,998\mu A
+\end{equation}
 Der Innenwiderstand des Voltmeters $R_i$ wird aus den zuvor berechneten Spannung und Strom berechnet:
-\begin{center}
-$R_i = \dfrac{U_V}{I}$ = 9,92M$\Omega$
-\end{center}
+\begin{equation}
+	R_i = \dfrac{U_V}{I} = 9,92M\Omega
+\end{equation}
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|}
@@ -87,7 +79,7 @@ $R_i = \dfrac{U_V}{I}$ = 9,92M$\Omega$
 	\end{tabular}
 	\caption{Auswertung dieser Übung}
 \end{table}
-
+~\\
 Der Innenwiderstand des Multimeters ist im MegaOhm-Bereich, damit der Strom, der durch das Messgerät fließt, klein ist, um die Spannungsmessung so gering wie möglich zu verfälschen.
 
 \subsubsection{Bestimmung der Spannung am Multimeter}
@@ -97,14 +89,14 @@ TODO: SCHALTUNG		\\
 ~\\
 Dieser Schaltung wurde mit einer Spannung $U$ von 10V versorgt. Der mit einem Ohmmeter gemessenen Widerstand $R_M$ ergab 100,2k$\Omega$. Die Spannungen $U_{V1}$ und $U_{V2}$ an den beiden Voltmetern betrugen 9,80V.	\\
 ~\\
-Die beiden parallel geschalteten Voltmetern werden in der Berechnung als Ersatz-Innenwiderstände ersetzt. Es wird angenommen, dass beide Ersatzwiderstände den selben Wert von 9,92$M\Omega$ haben.
-\begin{center}
-$R_{iG} = \dfrac{R_{i1} \cdot R_{i2}}{R_{i1} + R_{i2}}$
-\end{center}
+Die beiden parallel geschalteten Voltmetern werden in der Berechnung als Ersatz-Innenwiderstände ersetzt. Es wird angenommen, dass beide Ersatzwiderstände den selben Wert haben. $R_i = 9,92 M\Omega$
+\begin{equation}
+	R_{iG} = \dfrac{R_{i1} \cdot R_{i2}}{R_{i1} + R_{i2}}
+\end{equation}
 Die Spannung am Voltmeter V2 wird als Teilspannung mit Hilfe der Spannungsteilerregel berechnet:
-\begin{center}
-$U_{V2} = U \cdot \dfrac{R_{iG}}{R_M + R_{iG}}$
-\end{center}
+\begin{equation}
+	U_{V2} = U \cdot \dfrac{R_{iG}}{R_M + R_{iG}}
+\end{equation}
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|}
@@ -118,38 +110,40 @@ $U_{V2} = U \cdot \dfrac{R_{iG}}{R_M + R_{iG}}$
 	\end{tabular}
 	\caption{Auswertung dieser Übung}
 \end{table}
-TODO: Interpretation
+TODO: BERECHNUNG + Interpretation
 
 \subsubsection{Messbereichserweiterung}
-Die Destination dieser Teilübung ist, den Messbereichserweiterung der Spannungsmessung zu erstellen.
+Das Ziel dieser Teilübung ist, den Messbereichserweiterung der Spannungsmessung zu erstellen.
 ~\\
 TODO: SCHALTUNG		\\
 ~\\
-Dieser Schaltung wurde mit einer Spannung $U$ von 10V versorgt. Die Widerstände $R_M$ und $R_V$ wurde jeweils mit einem Ohmmeter gemessen und ergaben 99,5k$\Omega$ für $R_M$ bzw. 100,2k$\Omega$ für $R_V$. Die Spannung $U_{RM}$ an dem Widerstand $R_M$ betrug 4,952V.	\\
+Dieser Schaltung wurde mit einer Spannung $U$ von 10V versorgt. Die Widerstände $R_M$ und $R_V$ wurde jeweils mit einem Ohmmeter gemessen und ergaben 99,5k$\Omega$ für $R_M$ bzw. 100,2k$\Omega$ für $R_V$. Die gemessene Spannung $U_{RM}$ an dem Widerstand $R_M$ betrug 4,952V.	\\
 ~\\
-Der Faktor $f_{ME}$ der Messbereichserweiterung wird berechnet aus:
-\begin{center}
-$f_{ME} = \dfrac{U}{U_{RM}}$
-\end{center}
-Die Eingangsspannung $U$ wird aus der Addition von der Spannung vom Voltmeter und vom 
-\begin{center}
-$U = U_V + U_{RM} = I \cdot R = I \cdot (R_V + R_M \parallel R_{i2})$
-\end{center}
-Die Spannung lässt durch X berechnen.
-\begin{center}
-$U_V = I \cdot R_V$
-\end{center}
-\begin{center}
-$U_{RM} = I \cdot (R_M \parallel R_{i2})$
-\end{center}
+Der Faktor $f_{ME}$ der Messbereichserweiterung wird mit der Formel \ref{eq:me_spg} berechnet:
+\begin{equation}
+	f_{ME} = \dfrac{U}{U_{RM}}
+	\label{eq:me_spg}
+\end{equation}
+Die Eingangsspannung $U$ wird aus der Addition von der Spannung vom Widerstand $R_M$ und von der vom Vorwiderstand $R_V$ errechnet.
+\begin{equation}
+	U = U_V + U_{RM} = I \cdot R = I \cdot (R_V + R_M \parallel R_{i2})
+\end{equation}
+Die Spannung $U_V$ am Vorwiderstand $R_V$ wird durch die folgende Formel berechnet:
+\begin{equation}
+	U_V = I \cdot R_V
+\end{equation}
+Die Spannung $U_{RM}$ am Widerstand $R_M$:
+\begin{equation}
+	U_{RM} = I \cdot (R_M \parallel R_{i2})
+\end{equation}
 Das Voltmeter wird durch eine Ersatz-Innenwiderstand ersetzt, somit ergibt sich der Parallelwiderstand $R_P$
-\begin{center}
-$R_P = \dfrac{R_M \cdot R_{i2}}{R_M + R_{i2}}$
-\end{center}
-Setzt man die obrigen Formeln in die Formel ein, bekommt man:
-\begin{center}
-$f_{ME} = \dfrac{R_V + R_P}{R_P}$
-\end{center}
+\begin{equation}
+	R_P = \dfrac{R_M \cdot R_{i2}}{R_M + R_{i2}} = 98,5k\Omega
+\end{equation}
+Setzt man die obrigen Formeln in die Formel ein, bekommt man: !!REFERENZ!!
+\begin{equation}
+	f_{ME} = \dfrac{R_V + R_P}{R_P} = 2,02
+\end{equation}
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|}
@@ -162,26 +156,24 @@ $f_{ME} = \dfrac{R_V + R_P}{R_P}$
 	\hline 
 	Widerstand $R_V [k\Omega]$ 				& 100,2	\\ 
 	\hline 
-	Faktor der Messbereichserweiterung $f_{ME}$	& XXX	\\ 
+	Faktor der Messbereichserweiterung $f_{ME} [1]$	& 2,02	\\ 
 	\hline 
 	\end{tabular}
 	\caption{Auswertung dieser Übung}
 \end{table}
-TODO: Interpretation
-
 
 \subsection{Strommessung}
 \subsubsection{Berechnung des Innenwiderstandes des Amperemeters}
-In der ersten Übung soll der Innenwiderstand des Amperemeters ermittelt werden. Die Schaltung zur Messung des Stromwertes wird folgende Schaltung aufgebaut.
+In dieser Übung soll der Innenwiderstand des Amperemeters ermittelt werden. Die Schaltung zur Messung des Stromwertes wird folgende Schaltung aufgebaut.
 ~\\
 TODO: SCHALTUNG		\\
 ~\\
-Um dieser Schaltung mit einem Strom $I$ von $500,6\mu A$ zu versorgen, wurde die Spannungsquelle $U_A$ auf 1,501V gestellt. Der mit einem Ohmmeter gemessenen Widerstand $R_1$ ergab 4,63k$\Omega$. \\
+Um dieser Schaltung mit einem Strom $I$ von $500\mu A$ zu versorgen, wurde die Spannungsquelle $U_A$ auf 1,5V gestellt. Der mit einem Ohmmeter gemessenen Widerstand $R_1$ ergab 4,63k$\Omega$. \\
 ~\\
 Der Innenwiderstand des Amperemeters $R_i$ wird aus dem gemessenen Spannungs- und Stromwert berechnet:
-\begin{center}
-$R_i = \dfrac{U_A}{I}$ = 3k$\Omega$
-\end{center}
+\begin{equation}
+	R_i = \dfrac{U_A}{I} = 3k\Omega
+\end{equation}
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|}
@@ -201,37 +193,192 @@ Bei dieser Messung soll eruriert werden, wie sich die Strommessung auf die Berec
 ~\\
 TODO: SCHALTUNG		\\
 ~\\
-Die Spannungsversorgung wurde so lange erhöht, bis der Strom $I_1$ $500\mu A$ erreicht wurden. Danach wurde der Bügel entfernt und erneut den Strom $I_2$ abgelesen. Die Ströme wurden mit dem Amperemeter $A_1$ gemessen.
+Die Spannungsversorgung wurde so lange erhöht, bis der Strom $I_1$ $500\mu A$ erreicht wurden. Danach wurde der Bügel entfernt und erneut den Strom $I_2$ abgelesen. Die Ströme wurden mit dem Amperemeter $A^*$ gemessen.
 Die Spannung am Widerstand $R_1$ wird aus der Differenz von der Eingangsspannung und der Spannung am Voltmeter berechnet:
-\begin{center}
-$U_{R1}$ = $U - U_V$ = 0,1V
-\end{center}
-Der Strom durch $R_1$ ergibt sich als Quotient aus der berechneten Spannung und dem Widerstand $R_1$:
-\begin{center}
-$I = \dfrac{U_{R1}}{R_1}$ = $\dfrac{U - U_V}{R_1}$ = $0,998\mu$A
-\end{center}
-Der Innenwiderstand des Voltmeters $R_i$ wird aus den zuvor berechneten Spannung und Strom berechnet:
-\begin{center}
-$R_i = \dfrac{U_V}{I}$ = 9,92M$\Omega$
-\end{center}
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|}
 	\hline 
-	Spannungsquelle $U [V]$			& 10 		\\ 
+	Strom $I_1 [\mu A]$		& 499,8	\\ 
 	\hline 
-	Vorwiderstand $R_1 [k\Omega]$		& 100,2	\\ 
+	$R_{ges1} [k\Omega]$		& 7,63	\\ 
 	\hline 
-	Spannung an Voltmeter $U_V [V]$ 	& 9,90	\\ 
+	Strom $I_2 [\mu A]$ 		& 361,2	\\ 
 	\hline 
-	Spannung am Widerstand $R_1 [V]$	& 0,1		\\ 
+	$R_{ges2} [k\Omega]$		& 10,6	\\ 
 	\hline 
-	Strom durch $R_1 [\mu A]$		& 998		\\ 
-	\hline 
-	Innenwiderstand $R_i [M\Omega]$	& 9,92	\\ 
+	Faktor - Verhältnis von Strömen und Widerständen $f_A [1]$			& 1,393	\\ 
 	\hline 
 	\end{tabular}
 	\caption{Auswertung dieser Übung}
 \end{table}
 
+\subsubsection{Messbereichserweiterung}
+Die Destination dieser Teilübung ist, den Messbereichserweiterung der Spannungsmessung zu erstellen.
+~\\
+TODO: SCHALTUNG		\\
+~\\
+Der Faktor $f_{ME}$ der Messbereichserweiterung wird berechnet aus:
+\begin{equation}
+	f_{ME} = \dfrac{I^*}{I} = 1,32
+\end{equation}
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|}
+	\hline 
+	$R_P [k\Omega]$						& 9,85 	\\ 
+	\hline 
+	$I^* [\mu A]$						& 500	\\ 
+	\hline 
+	$I [\mu A]$							& 378	\\ 
+	\hline 
+	Faktor der Messbereichserweiterung $f_{ME} [1]$	& 1,32	\\ 
+	\hline 
+	\end{tabular}
+	\caption{Auswertung dieser Übung}
+\end{table}
+
+\subsection{Widerstandsmessung}
+
+$R=100 \Omega$ \\
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline 
+						& U [V]	& I[A]			& $R_{ber} [\Omega]$		\\ 
+	\hline 
+	spannungsrichtige Messung	& 10		& 0,1			& 100		\\ 
+	\hline 
+	stromrichtige Messung		& 2		& 647,6 $\mu$	& 88		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Auswertung dieser Übung}
+\end{table}
+
+~\\
+$R=100 k\Omega$ \\
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline 
+						& U [V]	& I[$\mu$A]		& $R_{ber} [k\Omega]$		\\ 
+	\hline 
+	spannungsrichtige Messung	& 1,938	& 19,51		& 100,34		\\ 
+	\hline 
+	stromrichtige Messung		& 2		& 19,38		& 100,199		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Auswertung dieser Übung}
+\end{table}
+
+
+\newpage
+
+\section{Spannungsmessung mit dem Oszilloskop}
+\subsection{Tastkopf}
+
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline 
+	f [Hz]		& $U_{abgeglichen} [V]$	& $U_{unterkompensiert} [V]$	& $U_{ueberkompensiert} [V]$		\\ 
+	\hline 
+	100		& 10,1			& 10,1				& 10,1		\\ 
+	\hline 
+	1k		& 10,2			& 9,8					& 10,9		\\ 
+	\hline 
+	10k		& 10,2			& 7,6					& 14,3		\\ 
+	\hline 
+	100k		& 10,3			& 7,4					& 14,6		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Auswertung dieser Übung}
+\end{table}
+
+
+
+\subsection{Spannungsmessung}
+
+
+$50\Omega$
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline 
+	f [Hz]		& Signalform		& $U_{pp} [mV]$	& $U_{RMS} [mV]$		\\ 
+	\hline 
+	1k		& Sinus		& 920			& 317			\\ 
+	\hline 
+	1k		& Dreieck		& 900			& 259			\\ 
+	\hline 
+	10k		& Dreieck		& 920			& 259			\\ 
+	\hline 
+	100k		& Dreieck		& 950			& 262			\\ 
+	\hline 
+	1k		& Rechteck		& 892			& 		\\ 
+	\hline 
+	10k		& Rechteck		& 892,5		& 		\\ 
+	\hline 
+	100k		& Rechteck		& 892,5		& 		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Auswertung dieser Übung}
+\end{table}
+
+$High Imp.$
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline 
+	f [Hz]		& Signalform		& $U_{pp} [V]$	& $U_{RMS} [V]$		\\ 
+	\hline 
+	1k		& Sinus		& 470			& 159			\\ 
+	\hline 
+	1k		& Dreieck		& 470			& 130			\\ 
+	\hline 
+	10k		& Dreieck		& 470			& 130			\\ 
+	\hline 
+	100k		& Dreieck		& 480			& 131			\\ 
+	\hline 
+	1k		& Rechteck		& 445			& 		\\ 
+	\hline 
+	10k		& Rechteck		& 445			& 		\\ 
+	\hline 
+	100k		& Rechteck		& 445			& 		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Auswertung dieser Übung}
+\end{table}
+
+
+\subsection{RMS im Detail}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+	f [Hz]		& Signalform		& $U_{pp, Oszi} [V]$	& $U_{RMS, Oszi} [V]$	& $U_{RMS, MM1} [V]$	& $U_{RMS, MM2} [V]$	\\ 
+	\hline 
+	1k		& Sinus		& 20,5			& 7,11			& 7,04			& 7,01			\\ 
+	\hline 
+	100k		& Sinus		& 20,5			& 7,20			& 7,0				& 0,94			\\ 
+	\hline 
+	1M		& Sinus		& 0,527			& 0,181			& $2,6\cdot 10^{-3}$	& $0,1\cdot 10^{-3}$	\\ 
+	\hline 
+	1k		& Dreieck		& 20,3			& 5,80			& 5,73			& 5,50			\\ 
+	\hline 
+	100k		& Dreieck		& 20,5			& 5,88			& 5,74			& 0,114			\\ 
+	\hline 
+	300k		& Dreieck		& $281 \cdot 10^{-3}$	& $80 \cdot 10^{-3}$	& $1,27 \cdot 10^{-3}$	& $0,06 \cdot 10^{-3}$	\\ 
+	\hline 
+	1k		& Rechteck		& 19,94			& 9,97			& 9,78			& 10,84			\\ 
+	\hline 
+	100k		& Rechteck		& 20,0			& 10,0			& 8,99			& 0,22			\\ 
+	\hline 
+	1M		& Rechteck		& $266 \cdot 10^{-3}$	& $133 \cdot 10^{-3}$	& $0,8 \cdot 10^{-3}$	& $1,2 \cdot 10^{-3}$	\\ 
+	\hline 
+	\end{tabular}
+	\caption{Auswertung dieser Übung}
+\end{table}
 

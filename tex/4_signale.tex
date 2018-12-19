@@ -1,1 +1,441 @@
 \chapter{Signalübertragung}
+
+\section{Einleitung}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline 
+		Teilnehmer 		& Oskar Fürnhammer, Katharina Kralicek, Patrick Mayr \\
+		\hline 
+		Datum 		& 03.12.2018 \\ 
+		\hline 
+		Messplatzbez. 	& CA0406-1 \\
+		\hline
+	\end{tabular} 
+	\caption{Grundlegende Information der 1. Laborübung}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{ c | c }
+
+Gerät				& Bezeichnung		\\
+\hline
+
+Multimeter			& Neumann 9400				\\
+Multimeter			& Agilent U1232A				\\
+Netzgerät			& Rigol DP832 				\\
+Oszilloskop			& Agilent Technologies DSO-X 2002A 	\\
+Funktionsgenerator		& Agilent 33500B 				\\
+
+	\end{tabular}
+
+	\caption{Verwendete Geräte}
+\end{table}
+
+
+\newpage
+
+\section{Signalübertragung auf ungestörten Drahtleitungen}
+
+\subsection{Reflexionen}
+
+In dieser Übung soll analysiert werden, welchen Einfluss der Abschlusswiderstand auf die Signalübertragung auf einer 30m langen Drahtleitungen haben. Um die Reflexion am Abschlusswiderstand messen zu können, wurden die Leitung an den Abschlüssen der entsprechenden Kabelboards angeschlossen. Die nicht genutzten Abschlüssen wurden mit einem Kurzschlusswiderstand versehen. Als Signalübertragung wurde die Single-Ended Voltage Signalling genommen. Am Eingang wurde der Frequenzgenerator angeschlossen und die entsprechenden Einstellungen für das Signal sind in der Tabelle \ref{tb:einst_refl} ersichtlich. \\
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline 
+		Amplitude		& Offset	& Frequenz	& Signalform		\\ 
+		\hline 
+		100$mV_{pp}$	& 4V		& 10kHz	& Rechteck		\\ 
+		\hline 
+	\end{tabular}
+	\caption{Einstellungen des Frequenzgenerators}
+	\label{tb:einst_refl}
+\end{table}
+~\\
+Es wurde die Reflexionen bei verschiedenen Abschlusswiderstand aufgenommen. \\
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline 
+	Abschlusswiderstand $R_A$	& $|V_{1.peak}| [mV]$	& $|V_{2.peak}| [mV]$	& $\Delta t_{peaks} [ns]$		\\ 
+	\hline 
+	$\infty$				& 135				& 84,75			& 370		\\ 
+	\hline 
+	50					& 25,5			& 8,5				& 350		\\ 
+	\hline 
+	100					& -				& -				& -		\\ 
+	\hline 
+	200					& 33,25			& 8,5				& 380		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Auswertung dieser Übung}
+	\label{tb:abschlusswid}
+\end{table}
+~\\
+Die Dämpfung kann über das Verhältnis $\dfrac{U(100)}{U(0)}$ berechnet werden, wobei man die Spannungen mit der Formel \ref{eq:dampf_u} ermittelt werden können.
+
+\begin{equation}
+	U(z) = U(0) \cdot e^{-\alpha z}
+	\label{eq:dampf_u}
+\end{equation}
+~\\
+Das $\alpha$ wird mit der Formel \ref{eq:dampf_u} berechnet. Für z wird die doppelte Kabellänge eingesetzt und die Spannungswerte für totale Reflexion werden aus der Tabelle \ref{tb:abschlusswid} entnommen. Daraus ergibt für $\alpha$ den Wert $7,76\cdot 10^{-3} \dfrac{1}{m}$.
+
+\begin{equation}
+	\alpha = -\dfrac{1}{60} \cdot ln\bigg(\dfrac{U(60)}{U(0)}\bigg)
+\end{equation}
+
+Zur Berechnung der Dämpfung setzt man den zuvor berechneten Wert von $\alpha$ und die Formel \ref{eq:dampf_u} in die Formel für die Dämpfung ein.
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Dämpfung [$dB / 100m$]		\\ 
+		\hline 
+		XXX	\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+Bei der Messung mit dem Abschlusswiderstand von $100 \Omega$ könnten keine sinnvolle Daten aufgenommen, da der Abschlusswiderstand gleich dem Wellenwiderstand ist. Daher treten auch keine Reflexionen auf.
+~\\
+Die Geschwindigkeit c des Signals wird über die Formel \ref{eq:speed} berechnet und daraus ergibt sich für eine Signallaufzeit von 370ns eine Geschwindigkeit von $162\cdot 10^{6} \dfrac{m}{s}$. Das ist in etwa $\dfrac{2}{3}$ der Lichtgeschwindigkeit.
+\begin{equation}
+	c = \dfrac{2 \cdot l_{Kabel}}{\Delta t}
+	\label{eq:speed}
+\end{equation}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Leitungswiderstand $Z_L$ [$\Omega$]		\\ 
+		\hline 
+		100	\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Ausbreitungsgeschwindigkeit c [$\dfrac{m}{s}$]		\\ 
+		\hline 
+		$162\cdot 10^{6}$		\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+
+\subsection{Bandbreite}
+
+Die Bandbreite ist ein Bereich im Frequenzspektrum, in dem die Verstärkung größer als 3db ist. Um die Grenzfrequenz zu ermitteln, wird sukzessive die Frequenz erhöht, bis die Ausgangsgröße um das $\dfrac{1}{\sqrt{2}}$-fache kleiner als die Eingangsgröße ist. Am Eingang wurde der Frequenzgenerator angeschlossen und die entsprechenden Einstellungen für das Signal sind in der Tabelle \ref{tb:einst_band} ersichtlich. Das Kabel wird mit dem Abschlusswiderstand $R_A$ = 100 $\Omega$ abgeschlossen.
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline 
+		Amplitude		& Offset	& Frequenz		& Signalform		\\ 
+		\hline 
+		100$mV_{pp}$	& 4V		& 100kHz-10MHz	& Rechteck		\\ 
+		\hline 
+	\end{tabular}
+	\caption{Einstellungen des Frequenzgenerators}
+	\label{tb:einst_bandl}
+\end{table}
+~\\
+Die Übertragungsstrecke zeigt ein Tiefpassverhalten.
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Bandbreite B [MHz]		\\ 
+		\hline 
+		6,9				\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+
+
+\section{Signalübertragung über einen gestörten Kanal}
+
+\subsection{Bestimmung des Signal-to-Noise Ratios}
+
+In dieser Übung soll evaluiert werden, wie sich die Störsignalen auf die Signalübertragung auswirken. Die Schaltung wird um den Störsender erweitert, der parallel zur Signalleitung angebracht wird. Am Eingang wurde der Frequenzgenerator angeschlossen und die entsprechenden Einstellungen für das Signal sind in der Tabelle \ref{tb:einst_stor} ersichtlich. Das Kabel wird mit dem Abschlusswiderstand $R_A$ = 100 $\Omega$ abgeschlossen.
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+			& Amplitude		& Offset 	& Frequenz 		& Signalform		\\ 
+	\hline 
+	Sender	& -			& 4V		& -			& DC			\\ 
+	\hline 
+	Störsender	& 3Vpp		& 2V		& 10MHz		& Noise 		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Einstellungen des Frequenzsgenerators}
+	\label{tb:einst_stor}
+\end{table}
+~\\
+Bei der Messung am Oszilloskop ergaben die folgenden Werten:
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Rauschen $U_{n, se}$ [mV]		\\ 
+		\hline 
+		13,7	\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Amplitude $U_s$ [V]		\\ 
+		\hline 
+		XXX		\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+~\\
+Um das SNR zu verbessern, ohne die Signalstärke erhöhen zu müssen, kann man einen Tiefpass-Filter am Eingang einbauen oder die Signalübertragung von Single-Ended Voltage Signalling auf die differentielle Übertragung umbauen.
+~\\
+Bei der nächsten Aufgabe wird ein Filter am Eingang mit dem Umstecken eines Jumpers dazu geschaltet.
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+	\hline 
+	Filtertype	& Ordnung		& Grenzfrequenz $f_c$ [kHz]		\\ 
+	\hline 
+	Tiefpass	& erste		& 180					\\ 
+	\hline 
+	\end{tabular}
+	\caption{Auswertung dieser Übung}
+\end{table}
+~\\
+XXXX - Berechnung??
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		SNR [dB]		\\ 
+		\hline 
+		72		\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Bandbreite B [MHz]		\\ 
+		\hline 
+		XXX		\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+
+
+\subsection{Differentielle Übertragung}
+Um das Verhalten einer differentiellen Übertragung zu untersuchen, wurde der Aufbau mit den entsprechenden Sende- und Empfangsmodulen von einer Single-Ended auf eine differentielle Übertragung umgebaut. Am Eingang wurde der Frequenzgenerator angeschlossen und die entsprechenden Einstellungen für das Signal sind in der Tabelle \ref{tb:einst_diff} ersichtlich. Das Kabel wird mit dem Abschlusswiderstand $R_A$ = 100 $\Omega$ abgeschlossen.
+
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+			& Amplitude		& Offset 	& Frequenz 		& Signalform		\\ 
+	\hline 
+	Sender	& -			& 4V		& -			& DC			\\ 
+	\hline 
+	Störsender	& 3Vpp		& 2V		& 10MHz		& Noise 		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Einstellungen des Frequenzsgenerators}
+	\label{tb:einst_diff}
+\end{table}
+~\\
+FRAGEN beantworten!!
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Rauschen $U_{n, de}$ [mV]		\\ 
+		\hline 
+		2,5	\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Amplitude $U_s$ [V]		\\ 
+		\hline 
+		XXX		\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		$U_{n, se} / U_{n, de}$ [1]		\\ 
+		\hline 
+		XXX		\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+\subsection{Signalübertragung von digitalen Signalen}
+
+Möchte man ein 10kHz-Sinus-Signal mit einer Abtastrate von 100kSPS mit einer Genauigkeit von 16-bit abtasten, benötigt man eine Bitrate BR = 1,6 Mbps.
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Bitrate BR [Mbps]		\\ 
+		\hline 
+		1,6		\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+In dieser Übung wird ein Low-Voltage Differential Signaling (LVDS) als Übertragungsstrecke verwendet. Am Eingang wurde der Frequenzgenerator angeschlossen und die entsprechenden Einstellungen für das Signal sind in der Tabelle \ref{tb:einst_lvds} ersichtlich. Dabei wird eine Pseudo Random Bit Sequence (PRBS) als Eingangssignal verwendet, dieses generiert zufällig die Bitfolge.
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+			& Amplitude		& Offset 	& Frequenz 		& Signalform		\\ 
+	\hline 
+	Sender	& 3Vpp		& 1,5V	& 1,6MHz		& PRBS		\\ 
+	\hline 
+	Störsender	& 3Vpp		& 2V		& 10MHz		& Noise 		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Einstellungen des Frequenzsgenerators}
+	\label{tb:einst_lvds}
+\end{table}
+
+Um ein stehendes Bild am Oszilloskop zu bekommen, triggert man das Signal bei steigender und fallender Flanke. In der Tabelle \ref{tb:auswertung_lvds} wurden die von dem Bild abgelesene Werte eingetragen.
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|}
+	\hline 
+	Bitrate [Mbps]							& 1,6		\\ 
+	\hline 
+	$U_1$ Spannungslevel bei digital 1 [mV]				& 394		\\ 
+	\hline 
+	$U_0$ Spannungslevel bei digital 0 [mV]				& -419	\\ 
+	\hline 
+	Anstiegszeit [ns]							& 50		\\ 
+	\hline 
+	Abfallzeit [ns]							& 68		\\ 
+	\hline 
+	Jitter des Übergangszeitpunktes 0-1 und 1-0 [ns]		& 35		\\ 
+	\hline 
+	$\sigma_1$ Rauschen des Spannungslevels von 1 [mV]	& 43,5	\\ 
+	\hline 
+	$\sigma_0$ Rauschen des Spannungslevels von 0 [mV]	& 46,5	\\ 
+	\hline 
+	\end{tabular}
+	\caption{Auswertung}
+	\label{tb:auswertung_lvds}
+\end{table}
+~\\
+BERECHNUNG!!!
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Rauschen $U_{n, BER = 10^{-9}}$ [V]		\\ 
+		\hline 
+		XXX		\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+
+
+\section{Signalübertragung mittels Stromsignalen}
+Bei Spannungssignalen ist die Signalamplitude am Ausgang abhängig vom Serienwiderstand der Leitung. Bei Stromsignalen passt der Sender die Spannung so an, dass der entsprechende Strom fließt. Am Eingang wurde der Frequenzgenerator angeschlossen und die entsprechenden Einstellungen für das Signal sind in der Tabelle \ref{tb:einst_strom} ersichtlich. Der Störsender wird bei dieser Übung nicht mehr benötigt.
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+			& Amplitude		& Offset 	& Frequenz 		& Signalform		\\ 
+	\hline 
+	Sender	& 5Vpp		& 2,5V	& 10kHz		& Sinus		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Einstellungen des Frequenzsgenerators}
+	\label{tb:einst_strom}
+\end{table}
+
+Für die Berechnung der Sensitivität wird die Formel \ref{eq:sens} herangezogen.
+\begin{equation}
+	S = \dfrac{U_1 - U_2}{R}
+	\label{eq:sens}
+\end{equation}
+
+Der Versuch wurde mit einem Stromsender gestartet und folgende Sensitivität wurde berechnet.
+\begin{equation}
+	S = \dfrac{550mV - 560mV}{96\Omega}
+	\label{eq:sens}
+\end{equation}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Sensitivität [$\mu V / \Omega$]		\\ 
+		\hline 
+		-104		\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+Dann wurde der Stromsender mit einem Spannungssender Single-Ended getauscht und man kam auf einer höhere Sensitivität.
+\begin{equation}
+	S = \dfrac{1,44V - 2,51V}{96\Omega}
+	\label{eq:sens}
+\end{equation}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|}
+		\hline 
+		Sensitivität [$mV / \Omega$]		\\ 
+		\hline 
+		-11,15		\\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+
+
+
+
