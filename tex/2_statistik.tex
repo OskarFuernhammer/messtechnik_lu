@@ -1,6 +1,6 @@
 \chapter{Statistik und Leistungsmessung}
 \section{Einleitung}
-\begin{table}[]
+\begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|}
 		\hline 
@@ -15,37 +15,77 @@
 	\end{tabular} 
 	\caption{Grundlegende Information der 2. Laborübung}
 \end{table}
-
-Verwendete Messgeräte:
-\begin{itemize}
-	\item{A}
-	\item{B}
-\end{itemize}
-
-Im Rahmen der 2. Laborübung sollten fünf unterschiedliche Impedanzen ($Z1$ - $Z5$) vermessen werden. Dabei war lediglich deren Struktur (siehe Tabelle XXXX) im Vorhinein bekannt. Es wurde zuerst ein passender Strommessshunt ausgewählt und die Schaltung konzipiert. Um aus den erhaltenen Spannungswerten den dazugehörigen Strom bestimmen zu können ist natürlich die genau Kenntnis über den Widerstandswert unabdingbar, weshalb dieser zu Beginn mehrmals und mit unterschiedlichen Methoden bestimmt worden ist. Die eigentliche Impedanzmessung wurde darauf hin mit einem analogen Oszilloskop durchgeführt. \\
-
-
-\section{Widerstandsmessung}
-\begin{table}[]
+\noindent
+Im Rahmen der 2. Laborübung sollten fünf unterschiedliche Impedanzen ($Z1$ - $Z5$) vermessen werden. Dabei war lediglich deren Struktur (siehe Tabelle \ref{tb:imp}!) im Vorhinein bekannt. Es wurde zuerst ein passender Strommessshunt ausgewählt und die Schaltung konzipiert. Um aus den erhaltenen Spannungswerten den dazugehörigen Strom bestimmen zu können ist natürlich die genau Kenntnis über den Widerstandswert unabdingbar, weshalb dieser zu Beginn mehrmals und mit unterschiedlichen Methoden bestimmt worden ist. Die eigentliche Impedanzmessung wurde darauf hin mit einem analogen Oszilloskop durchgeführt. \\
+Alle dabei verwendenten Messgeräte sind in Tabelle \ref{tb:messgeraete} aufgelistet.
+\begin{table}[h]
+	\begin{tabular}{|c|c|}
+	\hline 
+	Gerät & Bezeichnung \\ 
+	\hline 
+	Handmultimeter & Agilent U1232A \\ 
+	\hline 
+	Handmultimeter & Mastech MS8221C \\ 
+	\hline 
+	Handmultimeter & Neumann 9140 \\ 
+	\hline 
+	Desktopmultimeter & Agilent 34461A \\ 
+	\hline 
+	Analoges Oszilloskop & XXXX-------XXX DS-6612 \\ 
+	\hline 
+	\end{tabular} 
 	\centering
-	\begin{tabular}{|c|c|c|}
-	\hline 
-	Messung & Widerstandswert [$\Omega$] & Ergebnis \\ 
-	\hline 
-	M1 & 986 & • \\ 
-	\hline 
-	M2 & 984 & • \\ 
-	\hline 
-	M3 & 988 & • \\ 
-	\hline 
-	DM & 987 & • \\ 
-	\hline 
-	\end{tabular}
-	\caption{•}
+	\caption{Verwendete Messgeräte}
+	\label{tb:messgeraete}
 \end{table}
 
+\subsubsection{Teilnahmebestätigung}
 
-\begin{table}[]
+
+Hiermit XXX \\
+XX
+
+\section{Strommessung}
+Um den Strom durch einen bestimmten Strang zu messen musste zuerst eine passende Schaltung entworfen bzw. in weiterer Folge ein passender Messshunt ausgewählt werden. Unter der Bedingung, dass bei einer Eingangsspannung von $U=10\,V_{\text{pp}}$ ein maximaler Strom von $I_{\text{max}}=5\,$mA nicht überschritten werden soll, ergibt sich mit dem Ohm'schen Gesetzt direkt
+\begin{equation}
+	R_{i,\text{min}} = \frac{\hat{U}}{I_{max}} = \frac{5\,\text{V}}{5\,\text{mA}} = 1\,\text{k}\Omega
+	\label{eq:widerstandsdim}
+\end{equation}
+\section{Widerstandsmessung}
+Da 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|c|c|}
+	\hline 
+	Messung & Widerstandswert $R_i$ [$\Omega$]\\ 
+	\hline 
+	M1 - Agilent U1232A & 986		\\ 
+	\hline 
+	M2 - Mastech MS8221C & 984		\\ 
+	\hline 
+	M3 - Neumann 9140 & 988		\\ 
+	\hline 
+	DM - Agilent 34461A & 987		\\ 
+	\hline 
+	\end{tabular}
+	\caption{Gemessene Widerstandswerte}
+	\label{tb:widerstandswerte}
+\end{table} \noindent
+Damit ergibt sich der Mittelwert zu
+\begin{equation}
+	\overline{R_i} = \frac{1}{N} \sum\limits_{j=0}^N R_{i,j} = 
+	\label{eq:mittelw}
+\end{equation}
+Die empirische Standardabweichung wurde wiederum folgendermaßen berechnet:
+\begin{equation}
+	s(\overline{R_i}) = \sqrt{\frac{1}{N-1} \sum\limits_{j=0}^N (R_{i,j} - \overline{R_i})^2}= 
+	\label{eq:stdabw}
+\end{equation}
+Das Desktopmultimeter bietet die Funktion diverse statistische Größen direkt zu berechnen. Es hat sich gezeigt, dass mit zunehmender Aperaturbreite die Werte annährend gaußverteilt erscheinen. Auch der Effekt der PLC (Power Line Cycles) wurde untersucht. Wobei festgestellt worden ist, dass der Widerstandswert, höchst wahrscheinlich auf Grund der Temperaturabhngigkeit, bei langen Messzeiten stark zu driften beginnt. Die erhaltenen Messdaten sind in Tabelle \ref{tb:widerstand_dm} zusammengefasst.
+%\begin{figure}
+%	\includegraphics[scale=•]{•}
+%\end{figure}
+\begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 	\hline 
@@ -57,16 +97,20 @@ Im Rahmen der 2. Laborübung sollten fünf unterschiedliche Impedanzen ($Z1$ - $
 	\hline 
 	$1$ & 273 & 987.442 & 3 \\ 
 	\hline 
-	• & 1017 & 987.416 & 2 \\ 
+	1 & 1017 & 987.416 & 2 \\ 
 	\hline 
-	• & 5456 & 987.401 & 13 \\ 
+	1 & 5456 & 987.401 & 13 \\ 
 	\hline 
 	\end{tabular}
-	\caption{•}
+	\caption{Widerstandsmessung mit dem Desktopmultimeter}
+	\label{tb:widerstand_dm}
 \end{table}
 
 \section{Impedanzmessung}
-\begin{table}[]
+Um die unbekannten Impedanzen zu bestimmen werden Spannung und Strom (über Spannungsabfall an $R_i$) mit einem analogen Kathodenstrahloszilloskop gemessen. Dazu wird mittels Funktionsgenerator ein Sinus mit Amplitude 5V (10Vpp) angelegt. Durch die Phasenverschiebung und Amplitude des Stroms bei verschiedenen Frequenzen kann auf die Struktur sowie die Größe der Impedanz geschlossen werden. \\
+XX \\
+Formeln \\
+\begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|}
 	\hline 
@@ -94,6 +138,7 @@ Im Rahmen der 2. Laborübung sollten fünf unterschiedliche Impedanzen ($Z1$ - $
 	\hline 
 	\end{tabular}
 	\caption{•}
+	\label{tb:imp}
 \end{table}
 \section{Fehlerforpflanzung}
 \begin{table}
@@ -130,7 +175,7 @@ Im Rahmen der 2. Laborübung sollten fünf unterschiedliche Impedanzen ($Z1$ - $
 	\caption{•}
 \end{table}
 \section{Impedazmessung mit LCR-Meter}
-\begin{table}[]
+\begin{table}[h]
 	\centering
 	\begin{tabular}{|c||c|c|c|}
 	\hline 
