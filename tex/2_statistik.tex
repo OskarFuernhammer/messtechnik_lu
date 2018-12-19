@@ -33,17 +33,24 @@ Alle dabei verwendenten Messgeräte sind in Tabelle \ref{tb:messgeraete} aufgeli
 	\hline 
 	Analoges Oszilloskop & XXXX-------XXX DS-6612 \\ 
 	\hline 
+	LCR-Meter & XXXX------- \\ 
+	\hline 
+	Digitales Speicheroszilloskop & XXXX------\\ 
+	\hline 
 	\end{tabular} 
 	\centering
 	\caption{Verwendete Messgeräte}
 	\label{tb:messgeraete}
 \end{table}
 
-\subsubsection{Teilnahmebestätigung}
+\subsubsection{Eigentumsbestätigung}
+Hermit bestätigen die Studierenden der Gruppe 20, alle Messungen selbst durchgeführt und für die Berechnungen ausschließlich diese Messergebnisse herangezogen zu haben.
 
+\begin{tabular*}{\textwidth}{c|c|c}
+	Patrick Mayr & Katharina Kralicek & Oskar Fürnhammer \\ 
+	01526681 & 01611844 & 01329133 \\ 
+\end{tabular*}
 
-Hiermit XXX \\
-XX
 
 \section{Strommessung}
 Um den Strom durch einen bestimmten Strang zu messen musste zuerst eine passende Schaltung entworfen bzw. in weiterer Folge ein passender Messshunt ausgewählt werden. Unter der Bedingung, dass bei einer Eingangsspannung von $U=10\,V_{\text{pp}}$ ein maximaler Strom von $I_{\text{max}}=5\,$mA nicht überschritten werden soll, ergibt sich mit dem Ohm'schen Gesetzt direkt
@@ -73,7 +80,7 @@ Da
 \end{table} \noindent
 Damit ergibt sich der Mittelwert zu
 \begin{equation}
-	\overline{R_i} = \frac{1}{N} \sum\limits_{j=0}^N R_{i,j} = 
+	\overline{R_i} = \frac{1}{N} \sum\limits_{j=0}^N R_{i,j} = 986.25\, \Omega
 	\label{eq:mittelw}
 \end{equation}
 Die empirische Standardabweichung wurde wiederum folgendermaßen berechnet:
@@ -81,7 +88,7 @@ Die empirische Standardabweichung wurde wiederum folgendermaßen berechnet:
 	s(\overline{R_i}) = \sqrt{\frac{1}{N-1} \sum\limits_{j=0}^N (R_{i,j} - \overline{R_i})^2}= 
 	\label{eq:stdabw}
 \end{equation}
-Das Desktopmultimeter bietet die Funktion diverse statistische Größen direkt zu berechnen. Es hat sich gezeigt, dass mit zunehmender Aperaturbreite die Werte annährend gaußverteilt erscheinen. Auch der Effekt der PLC (Power Line Cycles) wurde untersucht. Wobei festgestellt worden ist, dass der Widerstandswert, höchst wahrscheinlich auf Grund der Temperaturabhngigkeit, bei langen Messzeiten stark zu driften beginnt. Die erhaltenen Messdaten sind in Tabelle \ref{tb:widerstand_dm} zusammengefasst.
+Das Desktopmultimeter bietet die Funktion diverse statistische Größen direkt zu berechnen. Es hat sich gezeigt, dass mit zunehmender Aperaturbreite die Werte annährend gaußverteilt erscheinen. Auch der Effekt der PLC (Power Line Cycles) wurde untersucht. Dabei wurde festgestellt, dass der Widerstandswert, höchst wahrscheinlich auf Grund der Temperaturabhngigkeit, bei langen Messzeiten stark zu driften beginnt. Die erhaltenen Messdaten sind in Tabelle \ref{tb:widerstand_dm} zusammengefasst.
 %\begin{figure}
 %	\includegraphics[scale=•]{•}
 %\end{figure}
@@ -107,41 +114,68 @@ Das Desktopmultimeter bietet die Funktion diverse statistische Größen direkt z
 \end{table}
 
 \section{Impedanzmessung}
-Um die unbekannten Impedanzen zu bestimmen werden Spannung und Strom (über Spannungsabfall an $R_i$) mit einem analogen Kathodenstrahloszilloskop gemessen. Dazu wird mittels Funktionsgenerator ein Sinus mit Amplitude 5V (10Vpp) angelegt. Durch die Phasenverschiebung und Amplitude des Stroms bei verschiedenen Frequenzen kann auf die Struktur sowie die Größe der Impedanz geschlossen werden. \\
-XX \\
-Formeln \\
+\label{sc:impedanzmessung}
+Um die unbekannten Impedanzen zu bestimmen wurden Spannung und Strom (über den Spannungsabfall an $R_i$) mit einem analogen Kathodenstrahloszilloskop gemessen. Dazu wurde mittels Funktionsgenerator ein Sinus mit einer Amplitude von  $5\,$V angelegt. Durch die Phasenverschiebung und Amplitude des Stroms bei verschiedenen Frequenzen kann auf die Struktur sowie die Größe der Impedanz geschlossen werden. \\
+Der Vollständigkeit halber wurden zusätzlich zu den berechneten, auch die tatsächlich gemssenen Werte in Tabelle \ref{tb:imp} angegeben. 
 \begin{table}[h]
 	\centering
-	\begin{tabular}{|c|c|c|c|c|c|}
+	\begin{tabular}{|c|c||c|c||c|c|c|c|}
 	\hline 
-	Strang & f [kHz] & u [V] & i [A] & Z [$\Omega$] & Struktur \\ 
+	Strang & f [kHz] & $u_i$ [V] & $\Delta t$ [$\mu s$] & u [V] & i [mA] & \underline{Z} [$\Omega$] & Struktur \\ 
 	\hline 
-	S1 & 1 & • & • & • & • \\ 
+	S1 & 1 & 4 & 15.8 & 1 & 4.056 & • & L \\ 
 	\hline 
-	• & 15 & • & • & • & • \\ 
+	 & 15 & 1.1 & 4.4 & 3.9 & 1.115 & • & L \\ 
 	\hline 
-	S2 & 1 & • & • & • & • \\ 
+	S2 & 1 & 4.6 & 0.4 & 0.4 & 4.664 & • & L \\ 
 	\hline 
-	• & 15 & • & • & • & • \\ 
+	 & 15 & 4.6 & 0.4 & 0.4 & 4.664 & • & L \\ 
 	\hline 
-	S3 & 1 & • & • & • & • \\ 
+	S3 & 1 & 1.2 & 20 & 3.8 & 1.217 & • & C \\ 
 	\hline 
-	• & 15 & • & • & • & • \\ 
+	 & 15 & 1.3 & 0.12 & 3.7 & 1.318 & • & C \\ 
 	\hline 
-	S4 & 1 & • & • & • & • \\ 
+	S4 & 1 & 2.6 & 50 & 2.4 & 2.636 & • & C \\ 
 	\hline 
-	• & 15 & • & • & • & • \\ 
+	 & 15 & 4.6 & 0.4 & 0.4 & 4.664 & • & C \\ 
 	\hline 
-	S5 & 1 & • & • & • & • \\ 
+	S5 & 1 & 0.52 & 0 & 4.48 & 5.274 & • & R \\ 
 	\hline 
-	• & 15 & • & • & • & • \\ 
+	 & 15 & 0.52 & 0 & 4.48 & 5.274  & • & R \\ 
 	\hline 
-	\end{tabular}
-	\caption{•}
+	\end{tabular} 
+	\caption{Impedanzen der Stränge S1-S5}
 	\label{tb:imp}
 \end{table}
+Hierbei stehen $u_i$ für die Spannung, welche am Messshunt abfällt, $\Delta t$ für die gemessene Zeitverschiebung, $\Delta \varphi$ für die daraus resultierende Phasenverschiebung und $u$ bzw. $i$ für die Spannung bzw. den Strom an der jeweiligen, zu messenden Impedanz. \\
+Die Eingangsspannung $u_e$ betrug, wie bereits erwähnt, konstant $5\,$V (Amplitude), womit sich für die Spannung $u$ direkt
+\begin{equation}
+	u = u_e - u_i
+\end{equation}
+ergibt. Für den Strom durch den gesamten Zweig und damit auch durch die Impedanz ergibt sich
+\begin{equation}
+	i = \frac{u}{\overline{R_i}}
+\end{equation}
+wobei zur Berechnung der Mittelwert $\overline{R_i}$ aus Gleichung \ref{eq:mittelw} verwendet worden ist. Um aus der zeitlichen Verschiebung der beiden Spannungs- und Stromverläufe auf den Phasenwinkel zu kommen wurde Gleichung \ref{eq:phase} mit der Periodendauer $T = \frac{1}{f}$ verwendet.
+\begin{equation}
+	\Delta \varphi = \frac{\Delta}{T}2 \pi
+	\label{eq:phase}
+\end{equation}
+Anmerkung: In Tabelle \ref{tb:imp} wurden aus Gründen der Überischtlichkeit lediglich die Beträge von $\Delta t$ notiert. Es ist aber natürlich von Relevanz ob der Strom der Spannung nacheilt, oder umgekehrt. Dieser Umstand wurde bei der Berechnug der Impedanz natürlich berücksichtigt.
+Mit den bereits berechneten Größen folgt die gesuchte Impadenz unmittelbar zu 
+\begin{equation}
+	\underline{Z} = \frac{\underline{U}}{\underline{I}} = \frac{u}{i} e^{j\Delta \varphi} .
+\end{equation}
+Nun muss aber noch beachtet werden, dass der Strommesswiderstand natürlich eine Einfluss auf die Messung hat, welchen es herauszurechnen gilt. Dazu wurde $\underline{Z}$ in Real- und Imaginärteil zerlegt und anschließend der bekannte, rein ohmische Widerstand von besagtem Realteil abgezogen. 
 \section{Fehlerforpflanzung}
-\begin{table}
+In dieser Aufgabe soll die gesamte Unsicherheit der Wirkleistung $P$ am RL-Strang berechnet werden. Die Messung soll dabei durch Messung von Spannung, Strom und Phasenwinkel erfolgen. \\
+Die Wirkleistung $P$ berechnet sich dabie wie folgt:
+\begin{equation}
+	P = UI\cos(\varphi)
+	\label{eq:wirkleistung}
+\end{equation}
+Wie man an Formel \ref{eq:wirkleistung} unmittelbar erkennt, ist die Wirkleistung von mehreren Messgrößen abhängig, weshalb im Folgenden einige Vereinfachungen gemacht wurden. $U$, sowie $R_i$ sind exakt bekannte Größen und weisen somit keine Unsicherheiten auf. Die gesamte Messunsicherheit von $P$ reduziert sicht somit auf die Unsicherheit von $I$ und $\varphi$.
+\begin{table}[h]
 	\centering
 	\begin{tabular}{|c||c|c|}
 	\hline 
@@ -175,25 +209,33 @@ Formeln \\
 	\caption{•}
 \end{table}
 \section{Impedazmessung mit LCR-Meter}
+Um die in Abschnitt \ref{sc:impedanzmessung} gemessenen bzw. berechneten Werte zu verifizieren wurden die Stränge S1-S5 zusätzlich mit einem LCR-Meter vermessen. Der Strommesswiderstand wurde dabei logischerweise nicht mehr verwendet.
 \begin{table}[h]
 	\centering
-	\begin{tabular}{|c||c|c|c|}
+	\begin{tabular}{|c||c|c|c|c|}
 	\hline 
-	Strang & C/L [nF/mH] & R [$\Omega$] & Z [$\Omega$] \\ 
+	Strang & C/L [nF/mH] & R [$\Omega$] & Z [$\Omega$] & Struktur\\ 
 	\hline 
-	S1 & 47.84 & 13.57 & 300.9 \\ 
+	S1 & 47.84 & 13.57 & 300.9 & LR\\ 
 	\hline 
-	S2 & 1.1018 & 17.80 & 18.91 \\ 
+	S2 & 1.1018 & 17.80 & 18.91 & LR\\ 
 	\hline 
-	S3 & 97.89 & \num{2.701e+3} & \num{3.153e+3} \\ 
+	S3 & 97.89 & \num{2.701e+3} & \num{3.153e+3} & CR\\ 
 	\hline 
-	S4 & 102 & 27.5 & \num{1.56e+3} \\ 
+	S4 & 102 & 27.5 & \num{1.56e+3} & CR \\ 
 	\hline 
-	S5 &  & \num{8.066} & \num{8.066e+3} \\ 
+	S5 &  & \num{8.066} & \num{8.066e+3} & R\\ 
 	\hline 
 	\end{tabular} 
+	\caption{Impdeanzen der Sträne S1-S5 (mit LCR-Meter gemessen)}
 \end{table}
-TO DO
+TO DO \\
+XX \\
+XX \\
+Resumee \\
+XX \\ 
+XX \\
 \section{5/8-Methode}
-TO DO
+Eine andere, effektive Möglichkeit zur bestimmung von L- bzw C-Komponeten einer unbekannten Impedanz ist die so genannte 5/8-Methode. Dabei wird als Eingang ein Rechtecksignal niedriger Frequenz $f$ ($T = \frac{1}{f} \ll \tau$) verwendet und ein Single-Shot des Einschwingvorgangs auf etwas mehr als die gesamte Bildschirmgröße des Oszillokops skaliert. Beim Schnittpunkt der 5. vertikalen Unterteilung hat das Signal 5/8 des Endwertes erreicht. Dies entspricht in etwa einer Zeitkonstante $\tau$. \\
+Zu diesem Zwecke 
 \section{Leistungsmessung}
