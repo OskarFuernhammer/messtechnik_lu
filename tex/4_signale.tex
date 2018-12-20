@@ -77,20 +77,26 @@ Es wurde die Reflexionen bei verschiedenen Abschlusswiderstand aufgenommen. \\
 	\label{tb:abschlusswid}
 \end{table}
 ~\\
-Die Dämpfung kann über das Verhältnis $\dfrac{U(100)}{U(0)}$ berechnet werden, wobei man die Spannungen mit der Formel \ref{eq:dampf_u} ermittelt werden können.
-
+Die Dämpfung kann über das Verhältnis von U(100) zu U(0) berechnet werden.
+\begin{equation}
+	\dfrac{U(100)}{U(0)}
+	\label{eq:dampf}
+\end{equation}
 \begin{equation}
 	U(z) = U(0) \cdot e^{-\alpha z}
 	\label{eq:dampf_u}
 \end{equation}
 ~\\
 Das $\alpha$ wird mit der Formel \ref{eq:dampf_u} berechnet. Für z wird die doppelte Kabellänge eingesetzt und die Spannungswerte für totale Reflexion werden aus der Tabelle \ref{tb:abschlusswid} entnommen. Daraus ergibt für $\alpha$ den Wert $7,76\cdot 10^{-3} \dfrac{1}{m}$.
-
 \begin{equation}
-	\alpha = -\dfrac{1}{60} \cdot ln\bigg(\dfrac{U(60)}{U(0)}\bigg)
+	\alpha = -\dfrac{1}{60} \cdot ln\bigg(\dfrac{U(60)}{U(0)}\bigg) = 7,76\cdot 10^{-3} \dfrac{1}{m}
 \end{equation}
-
-Zur Berechnung der Dämpfung setzt man den zuvor berechneten Wert von $\alpha$ und die Formel \ref{eq:dampf_u} in die Formel für die Dämpfung ein.
+~\\
+Zur Berechnung der Dämpfung setzt man den zuvor berechneten Wert von $\alpha$ und die Formel \ref{eq:dampf_u} in die Formel für die Dämpfung ein und das ergibt:
+\begin{equation}
+	\text{Dämpfung} = 20 log\bigg(\dfrac{U(100)}{U(0)}\bigg) =  20 log(e^{-\alpha 100}) = -6,745 dB / 100m
+	\label{eq:dampf}
+\end{equation}
 
 \begin{table}[!h]
 	\centering
@@ -98,11 +104,11 @@ Zur Berechnung der Dämpfung setzt man den zuvor berechneten Wert von $\alpha$ u
 		\hline 
 		Dämpfung [$dB / 100m$]		\\ 
 		\hline 
-		XXX	\\ 
+		-6,745 	\\ 
 		\hline 
 	\end{tabular}
 \end{table}
-
+~\\
 Bei der Messung mit dem Abschlusswiderstand von $100 \Omega$ könnten keine sinnvolle Daten aufgenommen, da der Abschlusswiderstand gleich dem Wellenwiderstand ist. Daher treten auch keine Reflexionen auf.
 ~\\
 Die Geschwindigkeit c des Signals wird über die Formel \ref{eq:speed} berechnet und daraus ergibt sich für eine Signallaufzeit von 370ns eine Geschwindigkeit von $162\cdot 10^{6} \dfrac{m}{s}$. Das ist in etwa $\dfrac{2}{3}$ der Lichtgeschwindigkeit.
@@ -198,14 +204,20 @@ Bei der Messung am Oszilloskop ergaben die folgenden Werten:
 		\hline 
 	\end{tabular}
 \end{table}
+~\\
+Die Amplitude wird mit der Formel \ref{eq:snr_ampl} berechnet, mit der Bedingung, dass das SNR 0dB beträgt. Daraus ergibt sich, dass die Spannung des Signals $U_{Signal}$ gleich der Spannung des Rauschens $U_{Rauschen}$ ist.
+\begin{equation}
+	U_s(30) = U(0) \cdot e^{-\alpha 30} \cdot \sqrt{2} = 15,35mV
+	\label{eq:snr_ampl}
+\end{equation}
 
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|c|}
 		\hline 
-		Amplitude $U_s$ [V]		\\ 
+		Amplitude $U_s$ [mV]		\\ 
 		\hline 
-		XXX		\\ 
+		15,35		\\ 
 		\hline 
 	\end{tabular}
 \end{table}
@@ -226,7 +238,11 @@ Bei der nächsten Aufgabe wird ein Filter am Eingang mit dem Umstecken eines Jum
 	\caption{Auswertung dieser Übung}
 \end{table}
 ~\\
-XXXX - Berechnung??
+
+\begin{equation}
+	SNR = 20 \cdot log\bigg(\dfrac{U_{Signal}}{U_{Rauschen}}\bigg)
+	\label{eq:snr_ampl}
+\end{equation}
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|c|}
@@ -282,14 +298,19 @@ FRAGEN beantworten!!
 		\hline 
 	\end{tabular}
 \end{table}
-
+~\\
+Die Amplitude wird mit der Formel \ref{eq:diff_ampl} berechnet:
+\begin{equation}
+	U_s(30) = U(0) \cdot e^{-\alpha 30} \cdot \sqrt{2} = 2,8mV
+	\label{eq:diff_ampl}
+\end{equation}
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|c|}
 		\hline 
 		Amplitude $U_s$ [V]		\\ 
 		\hline 
-		XXX		\\ 
+		2,8		\\ 
 		\hline 
 	\end{tabular}
 \end{table}
@@ -300,7 +321,7 @@ FRAGEN beantworten!!
 		\hline 
 		$U_{n, se} / U_{n, de}$ [1]		\\ 
 		\hline 
-		XXX		\\ 
+		5,48		\\ 
 		\hline 
 	\end{tabular}
 \end{table}
@@ -364,15 +385,25 @@ Um ein stehendes Bild am Oszilloskop zu bekommen, triggert man das Signal bei st
 	\label{tb:auswertung_lvds}
 \end{table}
 ~\\
-BERECHNUNG!!!
-
+Die Bit Error Rate (BER) wird über diese Formel berechnet.
+\begin{equation}
+	Bit Error Rate (BER) = erfc\bigg(\dfrac{Q}{\sqrt{2}}\bigg)
+\end{equation}
+\begin{equation}
+	Bitfehlerparameter (Q) = \dfrac{U_1 - U_0}{\sigma_1 + \sigma_0}
+\end{equation}
+~\\
+Für eine Bit-Error-Rate von $10^{-9}$ ist ein Signal-to-Noise Rate von 21,6 dB nötig.
+\begin{equation}
+	SNR = 20 \cdot log\bigg(\dfrac{U_1 - U_0}{U_n}\bigg) -> U_n = \dfrac{U_1- U_0}{10^{\dfrac{SNR}{20}}}
+\end{equation}
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|c|}
 		\hline 
-		Rauschen $U_{n, BER = 10^{-9}}$ [V]		\\ 
+		Rauschen $U_{n, BER = 10^{-9}}$ [mV]		\\ 
 		\hline 
-		XXX		\\ 
+		67,6		\\ 
 		\hline 
 	\end{tabular}
 \end{table}
