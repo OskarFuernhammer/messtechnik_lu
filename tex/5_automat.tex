@@ -17,14 +17,49 @@
 	\caption{Grundlegende Information der 2. Laborübung}
 \end{table}
 
-Verwendete Messgeräte:
-\begin{itemize}
-	\item{A}
-	\item{B}
-\end{itemize}
 
-\section{Spannungsmessung}
 
-\section{Umwandlung von singleended auf differentielle Signale}
+\section{Abtastung und Filterung}
+Für die nachfolgenden Messungen wurden Daten mittels einer Breakout-Box und eine DAQ Karte sowohl vom Computer ausgegeben, als auch eingelesen und digital in einem Matlab Script weiterverarbeitet.
+\subsection{Messen verschiedener Eingangsspannungen}
+Um die Auswirkung verschiedener Signalformen und Frequenzen auf das Frequenzspektrum zu betrachten, wurden in dieser Messung mittels des Funktionsgenerators des Oszilloskops Signale direkt in die Breakout-Box eingespeist. In Matlab wurde eine Samplefrequenz von fa=20kHz eingestellt.
 
+Bei einem Sinussignal mit einer Spitze-Spitze-Spannung von 5Vpp und einem Offset von 0V kann im Betragsspektrum schön den Peak sehen, der mit Erhöhung der Frequenz immer weiter nach rechts im Spektrum wandert. Ab einer Frequenz von 10kHz sieht man bei weiterer Erhöhung den Peak jedoch vermeintlich wieder rücklaufen, mit einer geringeren Amplitude. Dieser Peak entsteht durch Aliasing, weil die Frequenz des Messsignals nicht mehr dem Nyquisttheorem von f<2*fa genügt.
+
+Wird die Fensterfunktion weggelassen, so misst man vermeintlich Frequenzen, die allerdings im Messsignal gar nicht vorkommen, und verfälscht somit die Messung.
+
+Nun wird zum Vergleich ein Rechteck mit einer Spitze-Spitze-Spannung von 5Vpp und einem Offset von 1V angelegt. Im Frequenzspektrum sieht man den Offset bei Frequenz 0, einen Peak bei der Frequenz des Messsignals und dann in regelmäßigen Abständen bei jeder ungeraden harmonischen Oberschwingung des Rechtecks einen Peak, der mit jeder höheren Oberschwingung eine geringere Amplitude aufweist.
+
+Für Tastverhältnisse, die nicht 50 entsprechen, sieht man auch Peaks bei geraden harmonischen Oberschwingungen.
+
+Um nun aus einem Rechtecksignal mit einer Frequenz von 200Hz einen Sinus zu erzeugen, wurde ein digitales Tiefpassfilter 171. Ordnung erzeugt. In Abb. XX sieht man, dass das Filter schon recht gut funktioniert, jedoch nicht perfekt filterte. Zum Vergleich wurde statt des digitalen Filters die Funktion filtfilt in Matlab verwendet. (Oskar, bitte interpretier du das, ich erinnere mich nicht gut genug an diese Funktion)
+
+Um auftretendes Aliasing filtern zu können, reicht ein digitales Filter nicht aus, da man Fehler im Messsignal nach der Digitalisierung nicht mehr gut von regulären Datenpunkten des Signals unterscheiden kann. Folglich muss das Signal bereits vor der Umwandlung ein Anti-Aliasing Filter passieren.
+
+\subsection{Auslegung eines Anti-Aliasing Filters}
+
+Aus der vorhergehenden Betrachtung folgt, dass man, um zu verhindern, dass der Aliasing Effekt auftreten kann, ein analoges Filter vor den AD-Wandler schalten muss. Dies sollte nun an einem passivem Tiefpassfilter 1. Ordnung mit Grenzfrequenz fg=5,3kHz getestet werden. Mit diesem Filter konnte das Aliasing zwar gedämpft werden, sichtbar waren die falschen Peaks aber immer noch. Dieses Filter ist somit nicht scharf genug.
+
+\subsection{Vergleich mit aktivem Filterung}
+
+Nun sollte die Messung der vorigen Punktes mit einem aktiven Tiefpassfilter 4. Ordnung mit gleicher Grenzfrequenz wiederholt werden. Dabei war eine deutliche Verbesserung sichtbar, bei einer Frequenz von 53kHz war kein Peak mehr zu sehen.
+
+Anschließend sollte, den Filter benutzend, das unbekannte, in Matlab implementierte Signal Filter-Test auf seine Signalform, Amplitude und Frequenz untersucht werden. Oskar, die Ergebnisse davon hab ich nicht aufgeschrieben, bitte füll du das fertig aus.
+
+\subsection{Umwandlung von singleended auf differentielle Signale}
+
+Da viele AD-Wandler über einen differentiellen Eingang verfügen, soll nun ausgetestet werden, welche Methode der Umwandlung für welche Frequenzen anzuwenden ist. Die zur Verfügung stehenden Methoden waren die Umwandlung mit einer Transformatorschaltung und einer OPV Schaltung.
+
+Oskar, die Messwerte hast du alle.
 \section{Automatisierte Messsysteme}
+
+In diesem Punkt soll das Oszilloskop mit einem Matlab-Skript gesteuert und verschiedene Bodediagramme aufgenommen werden. Im Matlab-Skript waren zusätzlich ideale Verläufe für alle Messungen implementiert, die in den Diagrammen grün dargestellt werden, während die Messungen in blau aufscheinen.
+
+Zuerst wurde das Bodediagramm des in Unterpunkt 5.1.2 selbst entwickelten passiven Tiefpassfilter 1. Ordnung aufgenommen. Dieser folgt mit nur leichten Abweichungen dem erwarteten Verlauf.
+
+Im Vergleich dazu weißt das gemessene Bodediagramm im Amplitudengang ab einer Frequenz von circa 10kHz mit steigender Frequenz stärker werdende Abweichungen von dem idealen Verlauf auf, und die Phase verhält sich in dem Bereich stark nichtlinear.
+
+Nun wurde noch ein 100m langes Koaxialkabel ausgemessen, einmal bei offenem Ende und einmal mit einem Abschlusswiderstand von 50Ohm. Für ein offenes Ende konnten im Amplitudengang ab eine Frequenz knapp unter 500kHz Resonanzüberhöhungen beobachtet werden, die mit einer stufenförmigen Drehung der Phase nach unter einhergingen. Ist das Kabel abgeschlossen mit seinem Wellenwiderstand, so ist die Verstärkung, unabhängig der Frequenz, konstant bei nahezu 0dB, während die Phase konstant nach unten dreht. Das Kabel verhält sich also wie ein Totzeitglied.
+
+Zusätzlich wurde die Laufzeit des Signals über das Kabel bei der Frequenz der ersten Resonanzerhöhung, die bei 483,3kHz lag, gemessen, und daraus mit der Formel c=l/t die Ausbreitungsgeschwindigkeit auf dem vorliegenden Kabel ermittelt.
+Oskar, den Messwert hast du :)
