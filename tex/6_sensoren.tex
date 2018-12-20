@@ -40,7 +40,7 @@ Hierbei sollte für zwei Reflektoren unterschiedlicher Oberflächenbeschaffenhei
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./img/ch6/Kennlinie_Reflektor_1_und_2}
-	\caption{Kennlinie Reflektor 1 und 2}
+	\caption{Sensorkennlinie für Reflektor 1 und 2}
 	\label{fg:kenn_refl}
 \end{figure}
 ~\\
@@ -48,28 +48,48 @@ Wie in Abb. \ref{fg:kenn_refl} ersichtlich haben die gemessenen Kennlinien bei b
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./img/ch6/Linearisierung_Reflektor_1}
-	\caption{Linearisierung Reflektor 1}
+	\caption{Linearisierung für Reflektor 1}
 	\label{fg:kenn_linear1}
 \end{figure}
 ~\\\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./img/ch6/Linearisierung_Reflektor_2}
-	\caption{Linearisierung Reflektor 2}
+	\caption{Linearisierung für Reflektor 2}
 	\label{fg:kenn_linear2}
 \end{figure}
 ~\\
-Für beide Reflektoren wurden in Abb. \ref{fg:kenn_linear1} und \ref{fg:kenn_linear2} die Bereiche gekennzeichnet, in denen die Kennlinie annähernd linear verläuft. Ihre Gleichungen lauten für Reflektor 2 im Messbereich 1 $U = 2,592(V/mm) \cdot x - 2,791V$ und im Messbereich 2 $U = -1,324(V/mm) \cdot x + 14,755V$, und für Reflektor 1 im Messbereich 1 $U = 316,8(mV/mm) \cdot x - 349,5mV$ und im Messbereich 2 $U = -153,2(mV/mm) \cdot x + 1,7454V$. Aus diesen Gleichungen kann man die Sensitivität E der Messbereiche ablesen, diese entspricht der jeweiligen Steigung. Es ergibt sich, das die Sensitivität im Messbereich 1 des Reflektors 2 mit 2,592(V/mm) am höchsten ist.
+Für beide Reflektoren wurden in Abb. \ref{fg:kenn_linear1} und \ref{fg:kenn_linear2} die Bereiche gekennzeichnet, in denen die Kennlinie annähernd linear verläuft. Die Gleichungen der Linearisierung:
+~\\
+\begin{equation}
+	\text{Reflektor 2 im Messbereich 1: }U = 2,592(V/mm) \cdot x - 2,791V
+	\label{eq:refl2_mb1}
+\end{equation}
+\begin{equation}
+	\text{Reflektor 2 im Messbereich 2: }U = -1,324(V/mm) \cdot x + 14,755V
+	\label{eq:refl2_mb2}
+\end{equation}
+\begin{equation}
+	\text{Reflektor 1 im Messbereich 1: }U = 316,8(mV/mm) \cdot x - 349,5mV
+	\label{eq:refl1_mb1}
+\end{equation}
+\begin{equation}
+	\text{Reflektor 1 im Messbereich 2: }U = -153,2(mV/mm) \cdot x + 1,7454V
+	\label{eq:refl1_mb1}
+\end{equation}
+~\\
+Aus diesen Gleichungen kann man die Sensitivität E der Messbereiche ablesen, diese entspricht der jeweiligen Steigung. Es ergibt sich, das die Sensitivität im Messbereich 1 des Reflektors 2 mit 2,592(V/mm) am höchsten ist.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./img/ch6/Prozentuelle_Abweichung_Kennlinie_Linearisierung_Messbereich_1}
-	\caption{Prozentuelle Abweichung Kennlinie Linearisierung Messbereich 1}
+	\caption{Prozentuelle Abweichung der Kennlinie von der Linearisierung im Messbereich 1}
 	\label{fg:kenn_mb1}
 \end{figure}
 ~\\
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./img/ch6/Prozentuelle_Abweichung_Kennlinie_Linearisierung_Messbereich_2}
-	\caption{Prozentuelle Abweichung Kennlinie Linearisierung Messbereich 2}
+	\caption{Prozentuelle Abweichung der Kennlinie von der Linearisierung im Messbereich 2}
 	\label{fg:kenn_mb2}
 \end{figure}
 ~\\
@@ -78,7 +98,7 @@ Die Abweichungen der Messpunkte von der Gerade sind in Abb. \ref{fg:kenn_mb1} un
 \section{Rauschen und Auflösung}
 
 Die Messung für Rauschen und Auflösung fand bei eingeschalteter Deckenbeleuchtung und bewölktem, bereits leicht dämmernden Himmel statt, bei aufgedrehtem Monitor des Computers. Das Schaltbild in Simulink, zu sehen in Abb. \ref{fg:schalt_rauschen} wurde um die Messung der Standardabweichung und des Spitze-Spitze-Wert erweitert, bevor die Messung begonnen wurde. Der Abstand des Reflektors zum Sensor wurde  5mm gewählt. In Tabelle \ref{tb:messerg} finden sich alle Messergebnisse.
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./img/ch6/6_3_3}
 	\caption{Schaltbild}
@@ -98,17 +118,24 @@ Die Messung für Rauschen und Auflösung fand bei eingeschalteter Deckenbeleucht
 	Spitze-Spitze-Spannung [V]	& 0,1117			& 0,9308	\\ 
 	\hline 
 	\end{tabular}
-	%\caption{Einstellungen des Frequenzsgenerators}
+	\caption{Messergebnisse}
 	\label{tb:messerg}
 \end{table}
 ~\\
 Man erkennt, dass die angelegte Gleichspannung die Messung den Mittelwert und die Spitze-Spitze-Spannung maßgeblich beeinflusst.
 ~\\
-Die aus der Gleichung $U_{pp} = 6 \cdot \sigma$ errechnete Spannung $U_{pp} = 0,082V$ für $U_e = 1,5V$ und $U_{pp} = 0,081V$ für $U_e = 0,5V$ entspricht nahezu der gemessenen $U_{pp}$ Spannung, womit die Verteilung ähnlich einer Gaußschen Verteilung ist.
-~\\
+Die aus der Gleichung \ref{eq:gl1} errechnete Spannung $U_{pp} = 0,082V$ für $U_e = 1,5V$ und $U_{pp} = 0,081V$ für $U_e = 0,5V$ entspricht nahezu der gemessenen $U_{pp}$ Spannung, womit die Verteilung ähnlich einer Gaußschen Verteilung ist.
+\begin{equation}
+	U_{pp} = 6 \cdot \sigma
+	\label{eq:gl1}
+\end{equation}
 Allgemein als Quellen von Rauschen sind das Tageslicht, die Beleuchtung im Raum, die Schaltung, die Raumtemperatur, sowie jede Umwandlung eines analogen Signals in ein digitales zu betrachten. Das Rauschen kann folglich beispielsweise durch Abschirmung des Sensors gegenüber unerwünschter Lichtquellen oder elektromagnetischer Felder verringert werden, genauso kann man den Raum um den Sensor abkühlen und die Datenverarbeitung anders gestalten.
 ~\\
-Die Positionsauflösung errechnet sich mit der Formel $\Delta x = \dfrac{\sigma}{E}$ für eine Eingangsspannung von $U_e = 1,5V$ im Messbereich 1 für Reflektor 2 zu $\Delta x = 5,278\mu m$.
+Die Positionsauflösung errechnet sich mit der Formel \ref{eq:gl2} für eine Eingangsspannung von $U_e = 1,5V$ im Messbereich 1 für Reflektor 2 zu $\Delta x = 5,278\mu m$.
+\begin{equation}
+	\Delta x = \dfrac{\sigma}{E}
+	\label{eq:gl2}
+\end{equation}
 
 \section{Spektrum der Fremdlichtintensität}
 
@@ -180,7 +207,7 @@ Die Messung ergab, entsprechend der Erwartung, eine Störung bei 20,1Hz, 33Hz un
 	\label{fg:schalt_pusd}
 \end{figure}
 ~\\
-Für den PUSD wird nun erneut das Schaltbild in Simulink verändert, ersichtlich in Abb.\ref{fg:schalt_pusd}. Das Messsignal wird nun über die DAQ Karte in die Messschaltung eingespeist, und es wird über den Block Mess-Sinus im Schaltbild am Computer generiert, mit einer Amplitude von 0,2V und einem Offset von 1,3V. Zusätzlich wird noch zur Filterung ein Butterworth-Tiefpassfilter 10. Ordnung mit Grenzfrequenz $f_g = 5Hz$ implementiert.
+Für den PUSD wird nun erneut das Schaltbild in Simulink verändert, ersichtlich in Abb. \ref{fg:schalt_pusd}. Das Messsignal wird nun über die DAQ Karte in die Messschaltung eingespeist, und es wird über den Block Mess-Sinus im Schaltbild am Computer generiert, mit einer Amplitude von 0,2V und einem Offset von 1,3V. Zusätzlich wird noch zur Filterung ein Butterworth-Tiefpassfilter 10. Ordnung mit Grenzfrequenz $f_g = 5Hz$ implementiert.
 ~\\
 Dieser Filter trägt dazu bei, dass Störungen ausschließlich an der Messfrequenz, beziehungsweise bis maximal 5Hz Abweichung um die Messfrequenz zu erwarten sind, denn alle anderen Frequenzen werden mit dem nahezu idealen Butterworth-Tiefpassfilter weggefiltert. Dies bestätigte sich bei der Messung auch, wo die gleichen Frequenzen betrachtet wurden, wie auch schon im Punkt zuvor für die PSSG, und die einzige Frequenz, an der eine Störung autrat, war 101Hz.
 ~\\
