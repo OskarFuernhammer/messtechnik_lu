@@ -37,7 +37,7 @@
 	\end{tabular} 
 	\centering
 	\caption{Verwendete Messgeräte}
-	\label{tb:messgeraete}
+	\label{tb:messgeraete_ue3}
 \end{table}
 
 \subsubsection{Eigentumsbestätigung}
@@ -53,7 +53,8 @@ Hermit bestätigen die Studierenden der Gruppe 20, alle Messungen selbst durchge
 \subsection{DC-Messbrücke}
 Um den parasitären Widerstand eines realen Kondensators messen zu können, wurde eine DC-Messbrücke nach dem Modell in Abb. \ref{fig:dc_messbruecke} aufgebaut. 
 \begin{figure}[H]
-	\includegraphics[width=\textwidth]{./img/ch3/DC_Wheatstone_Messbruecke.png}
+	\includegraphics[width=0.7\textwidth]{./img/ch3/DC_Wheatstone_Messbruecke.png}
+	\centering
 	\label{fig:dc_messbruecke}
 	\caption{DC Messbrücke}
 \end{figure}
@@ -79,7 +80,7 @@ zu
 	\end{tabular}
 	\centering
 	\label{tb:dc_bt}
-	\caption{•}
+	\caption{Bauteilwere der DC-Messbrücke}
 \end{table}
 Ist die Brücke nicht abgeglichen, so stellt sich eine Differenzspannung $U_d$ ein, die wiederum linear von der Versorgungsspannung abhängt, gemäß der Formel 
 \begin{equation}
@@ -116,12 +117,12 @@ wobei $X_x$ die gesuchte Kapazität darstellt.
 	\hline 
 	$R_3$ & 11.1k$\Omega$ \\ 
 	\hline 
-	$C$ & 3.8$\mu$F \\ 
+	$C_1$ & 3.8$\mu$F \\ 
 	\hline 
 	\end{tabular}
 	\centering
 	\label{tb:ac_bt}
-	\caption{•}
+	\caption{Bauteilwerte der AC-Messbrücke}
 \end{table}
 Bei dieser Messung ist es uns jedoch nicht gelungen, die Brücke vollständig abzugleichen. Mit den in Tabelle \ref{tb:ac_bt} gelisteten Werten für die Dekaden blieb eine Differenzspannung $U_d$ von 22mV. In diesem Fall errechnet sich die gesuchte Kapazität zu
 \begin{equation}
@@ -149,7 +150,10 @@ Bei dieser Messung ist es uns jedoch nicht gelungen, die Brücke vollständig ab
 \subsection{Subtrahierverstärker}
 \label{sec:subtrahier}
 Es sollen durch diese Messungen sämtliche Eigenschaften eines Subtrahierverstärkers in einer Halbbrücke bestimmt werden. Dazu mussten zu Beginn alle Widerstände gewählt werden, wobei für eine angenommene Gegentaktverstärkung von $V=1200$ die Widerstände $R_1=R_3=100\Omega$ und $R_2=R_4=120k\Omega$ gewählt. \\
-Für die Messung der Gegentaktverstärkung wird zwischen den beiden Eingängen ein zu verstärkendes Signal angelegt. Bei einem Eingangssignal der Frequenz $f=1\,$kHz und dem Spitze-Spitze-Spannungswert $u_e=4\,$mVpp wurde am Ausgang ein Spitze-Spitze-Spannugnswert von ua=3,7Vpp mit dem Oszilloskop gemessen. Daraus ergibt sich mit der Formel $V_\text{gemessen}=\frac{u_a}{u_e}=925$ die gemessene Gegentaktverstärkung. Da die absolute Abweichung der aus den Messwerten berechneten Verstärkung zur angenommenen Verstärkung doch 275 beträgt, ist es durchaus möglich, dass die angenommene Verstärkung zu hoch gesetzt war. Alternativ können Abweichungen auch durch Verluste in der Schaltung erklärt werden. \\ \\
+Für die Messung der Gegentaktverstärkung wird zwischen den beiden Eingängen ein zu verstärkendes Signal angelegt. Bei einem Eingangssignal der Frequenz $f=1\,$kHz und dem Spitze-Spitze-Spannungswert $u_e=4\,$mVpp wurde am Ausgang ein Spitze-Spitze-Spannugnswert von $ua=3.7\,$Vpp mit dem Oszilloskop gemessen. Daraus ergibt sich mit der Formel 
+\begin{equation}
+	V_\text{gemessen}=\frac{u_a}{u_e}=925
+\end{equation} die gemessene Gegentaktverstärkung. Da die absolute Abweichung der aus den Messwerten berechneten Verstärkung zur angenommenen Verstärkung doch 275 beträgt, ist es durchaus möglich, dass die angenommene Verstärkung zu hoch gesetzt war. Alternativ können Abweichungen auch durch Verluste in der Schaltung erklärt werden. \\ \\
 Nun wird der Eingangsoffset gemessen, indem bei Eingänge zusammen auf Masse gehängt werden, und anschließend am Oszilloskop bei DC Kopplung der DC RMS des Ausgangssignals abgelesen wird. Dabei ergab sich ein $U_a=420\,$mV, woraus mithilfe der Formel $U_e=\frac{U_a}{V}=0.35\,$mV der Eingangsoffset errechnet werden kann. Der Eingangsoffset eines OPVs wird durch seinen internen Aufbau hervorgerufen und tritt daher bei allen OPVs auf. \\ \\
 Um die Gleichtaktunterdrückung (Common Mode Rejection Ratio) zu ermitteln, legt man an beiden Eingängen das gleiche Signal an und betrachtet den Ausgang am Oszilloskop. Für eine Eingangsspannung von $u_e=12\,$Vpp und eine Frequenz von $f=100\,$Hz wurde am Ausgang $u_a=160\,$mVpp gemessen. Daraus ergibt sich mit der Formel
 \begin{equation}
@@ -157,7 +161,7 @@ Um die Gleichtaktunterdrückung (Common Mode Rejection Ratio) zu ermitteln, legt
 \end{equation}
 die Gleichtaktverstärkung. Mit Formel 
 \begin{equation}
-	CMRR=20*log(\frac{V_gemessen}{A})=96.83\,\text{dB} 
+	\text{CMRR}=20*\log(\frac{V_{\text{gemessen}}}{A})=96.83\,\text{dB} 
 \end{equation}
 kommt man auf die Gleichtaktunterdrückung. \\
 Um den RMS Wert des Rauschens zu messen, wurden die beiden Eingänge kurzgeschlossen und das Ausgangssignal mit dem Oszilloskop gemessen. Dabei ergab sich, mit eigestellter AC Kopplung, ein $U_a=1.8$mV, was dem Rauschen entspricht.
@@ -188,7 +192,7 @@ Zum Vergleich der beiden Verstärker sind in Tabelle \ref{tb:eigenschaften} noch
 	\hline 
 	\end{tabular}
 	\centering
-	\caption{•}
+	\caption{Vergleich der Verstärkereigenschaften}
 	\label{tb:eigenschaften}
 \end{table}
 
@@ -198,9 +202,10 @@ Ein Dehnmessstreifen soll, in einer Halbbrückenschaltung verbaut, auf seine Fun
 Bei 25 C wurde der Widerstand des Dehnmessstreifen als $R_{1d}=119.9\,\Omega$ gemessen, dementsprechend wurden die restlichen Widerstände gewählt.\\
 Wie in Abb. \ref{fig:gewicht_mb} zu sehen, ist der Zusammenhang trotz Schwankungen annähernd linear. 
 \begin{figure}[H]
-	\includegraphics[width=\textwidth]{./img/ch3/GewichtsmessungHalbbruecke_3_3_1.png}
+	\includegraphics[width=0.8\textwidth]{./img/ch3/GewichtsmessungHalbbruecke_3_3_1.png}
+	\centering
 	\label{fig:gewicht_mb}
-	\caption{X, HANDY!}
+	\caption{Gewichtsmessung mit einem DMS und einer Halbbrücke - roter Punkt entpsricht dem Messpunkt des Handys}
 \end{figure}
 Die Sensitivität der Schaltung wird dabei mithilfe der Formel
 \begin{equation}
@@ -218,17 +223,19 @@ Die Abweichung von den 113g, die der Hersteller für dieses Handy angegeben hat,
 Um die möglichen Störeinflüsse durch die Temperaturabhängigkeit eine Halbbrücke einschätzen zu können, wurde nun ein Heizelement, gespeist durch einen Funktionsgenerator, benutzt, um sowohl die Verstärkerausgangsspannung, als auch das Rauschen bei verschiedenen Temperaturen aufzuzeichnen. Die Temperaturmessung erfolgte hierbei über ein geeignetes Multimeter, während das Rauschen sowie der Wert der Verstärkerausgangsspannung mit dem Oszilloskop bestimmt wurden. \\
 Durch einen Fehler bei der Messung, der erst im Nachhinein aufgefallen ist, liegen für die Messung nicht ab der Starttemperatur des Heizelements von 25 C vor, sondern nur Werte ab einer Temperatur von 33  C. Die Werte für die Verstärkerausgangsspannung sind, wie man in Abb. \ref{fig:temp_mb} sehen kann, nicht sehr aussagekräftig, da sie zu stark schwanken, um einen funktionalen Zusammenhang erkennen zu können. Das Rauschen hingegen bleibt verhältnismäßig konstant über die Temperatur.
 \begin{figure}[H]
+	\centering
 	\includegraphics[width=\textwidth]{./img/ch3/TemperaturmessungHalbbruecke_3_3_2.png}
 	\label{fig:temp_mb}
-	\caption{X}
+	\caption{Gewichtsmessung mit einer Vollbrücke}
 \end{figure}
 
 \subsection{Vollbrücke}
 Nun wird die Halbbrücke zur Vollbrücke erweitert, und sämtliche zuvor durchgeführte Messungen werden wiederholt, um eine Vergleich zwischen beiden Schaltungen ziehen zu können. Die Messung wurde bei 27 C gemacht, da nicht auf vollständiges Abkühlen des Heizelements gewartet werden konnte. 
 \begin{figure}[H]
+	\centering
 	\includegraphics[width=\textwidth]{./img/ch3/GewichtsmessungVollbruecke_3_3_3.png}
 	\label{fig:gewicht_vb}
-	\caption{X}
+	\caption{Gewichtsmessung mit einer Vollbrücke}
 \end{figure}
 In Abb. \ref{fig:gewicht_vb} sind die einzelnen Ausschläge für verschiedene Gewichte dargestellt, und es ist ein nahezu linearer Zusammenhang erkennbar, mit kaum Abweichungen. Die Sensitivität errechnet sich, wie schon zuvor, aus 
 \begin{equation}
@@ -239,7 +246,7 @@ Auch für Vollbrückenschaltung wurde nun durch das Heizelement die Temperatur d
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{./img/ch3/TemperaturmessungVollbruecke_3_3_3.png}
 	\label{fig:temp_vb}
-	\caption{X}
+	\caption{Temperatruabhängigkeit der Vollbrücke}
 \end{figure} \noindent
 In Abb. \ref{fig:temp_vb} kann man sehr schön sehen, dass mit steigender Temperatur auch die Ausgangsspannung eine leichte Steigung aufweist, mit einem Ausreißer nach oben bei 36 C. Das Rauschen ist auf jeden Fall geringer als bei der Halbbrücke, wobei man jedoch erkennen kann, dass mit steigender Temperatur das Rauschen stärker sinkt, entgegen jeder physikalischen Erwartung. Somit ist dies vermutlich eher auf einen Messfehler zurückzuführen, als auf eine tatsächliche Auswirkung der Temperaturerhöhung.
 
