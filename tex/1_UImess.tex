@@ -89,13 +89,13 @@ TODO: SCHALTUNG		\\
 ~\\
 Dieser Schaltung wurde mit einer Spannung $U$ von 10V versorgt. Der mit einem Ohmmeter gemessenen Widerstand $R_M$ ergab 100,2k$\Omega$. Die Spannungen $U_{V1}$ und $U_{V2}$ an den beiden Voltmetern betrugen 9,80V.	\\
 ~\\
-Die beiden parallel geschalteten Voltmetern werden in der Berechnung als Ersatz-Innenwiderstände ersetzt. Es wird angenommen, dass beide Ersatzwiderstände den selben Wert haben. $R_i = 9,92 M\Omega$
+Die beiden parallel geschalteten Voltmetern werden in der Berechnung durch einen Ersatz-Innenwiderstand ersetzt. Es wird angenommen, dass beide Ersatzwiderstände den selben Wert von $9,92 M\Omega$ haben.
 \begin{equation}
-	R_{iG} = \dfrac{R_{i1} \cdot R_{i2}}{R_{i1} + R_{i2}}
+	R_{iG} = \dfrac{R_{i1} \cdot R_{i2}}{R_{i1} + R_{i2}} = 4,96 M\Omega
 \end{equation}
 Die Spannung am Voltmeter V2 wird als Teilspannung mit Hilfe der Spannungsteilerregel berechnet:
 \begin{equation}
-	U_{V2} = U \cdot \dfrac{R_{iG}}{R_M + R_{iG}}
+	U_{V2} = U \cdot \dfrac{R_{iG}}{R_M + R_{iG}} = 9,80V
 \end{equation}
 \begin{table}[h]
 	\centering
@@ -103,14 +103,13 @@ Die Spannung am Voltmeter V2 wird als Teilspannung mit Hilfe der Spannungsteiler
 	\hline 
 	Spannungsquelle $U [V]$			& 10 		\\ 
 	\hline 
-	Spannung an Voltmeter $U_{V1} [V]$ 	& 9,80	\\ 
+	gemessene Spannung an Voltmeter $U_{V1} [V]$ 	& 9,80	\\ 
 	\hline 
-	Spannung an Voltmeter $U_{V2} [V]$ 	& 9,80	\\ 
+	gemessene Spannung an Voltmeter $U_{V2} [V]$ 	& 9,80	\\ 
 	\hline 
 	\end{tabular}
 	\caption{Auswertung dieser Übung}
 \end{table}
-TODO: BERECHNUNG + Interpretation
 
 \subsubsection{Messbereichserweiterung}
 Das Ziel dieser Teilübung ist, den Messbereichserweiterung der Spannungsmessung zu erstellen.
@@ -122,25 +121,27 @@ Dieser Schaltung wurde mit einer Spannung $U$ von 10V versorgt. Die Widerstände
 Der Faktor $f_{ME}$ der Messbereichserweiterung wird mit der Formel \ref{eq:me_spg} berechnet:
 \begin{equation}
 	f_{ME} = \dfrac{U}{U_{RM}}
-	\label{eq:me_spg}
+	\label{eq:me_f}
 \end{equation}
 Die Eingangsspannung $U$ wird aus der Addition von der Spannung vom Widerstand $R_M$ und von der vom Vorwiderstand $R_V$ errechnet.
 \begin{equation}
 	U = U_V + U_{RM} = I \cdot R = I \cdot (R_V + R_M \parallel R_{i2})
+	\label{eq:me_spg}
 \end{equation}
 Die Spannung $U_V$ am Vorwiderstand $R_V$ wird durch die folgende Formel berechnet:
 \begin{equation}
 	U_V = I \cdot R_V
 \end{equation}
-Die Spannung $U_{RM}$ am Widerstand $R_M$:
+Die Spannung $U_{RM}$ am Widerstand $R_M$ wurde über das ohm'sche Gesetz berechnet:
 \begin{equation}
 	U_{RM} = I \cdot (R_M \parallel R_{i2})
+	\label{eq:me_spg_rm}
 \end{equation}
 Das Voltmeter wird durch eine Ersatz-Innenwiderstand ersetzt, somit ergibt sich der Parallelwiderstand $R_P$
 \begin{equation}
 	R_P = \dfrac{R_M \cdot R_{i2}}{R_M + R_{i2}} = 98,5k\Omega
 \end{equation}
-Setzt man die obrigen Formeln in die Formel ein, bekommt man: !!REFERENZ!!
+Setzt man die Formeln \ref{eq:me_spg} und \ref{eq:me_spg_rm} in die Gleichung \ref{eq:me_f} ein, bekommt man:
 \begin{equation}
 	f_{ME} = \dfrac{R_V + R_P}{R_P} = 2,02
 \end{equation}
@@ -239,8 +240,8 @@ Der Faktor $f_{ME}$ der Messbereichserweiterung wird berechnet aus:
 \end{table}
 
 \subsection{Widerstandsmessung}
-
-$R=100 \Omega$ \\
+Das Ziel dieser Aufgabe war, zwei Widerständen mit unterschiedlichen Werten jeweils spannungs- und stromrichtig zu messen.\\
+In der Tabelle \ref{tb:r_100} wurden die Messergebnisse mit dem Widerstand $R=100 \Omega$ eingetragen. Der Widerstand wurde über das ohm'sche Gesetz berechnet. \\
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
@@ -252,25 +253,29 @@ $R=100 \Omega$ \\
 	stromrichtige Messung		& 2		& 647,6 $\mu$	& 88		\\ 
 	\hline 
 	\end{tabular}
-	\caption{Auswertung dieser Übung}
+	\caption{Auswertung }
+	\label{tb:r_100}
 \end{table}
-
 ~\\
-$R=100 k\Omega$ \\
+In der Tabelle \ref{tb:r_100k} wurden die Messergebnisse mit dem Widerstand $R=100 k\Omega$ eingetragen.\\
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 	\hline 
 						& U [V]	& I[$\mu$A]		& $R_{ber} [k\Omega]$		\\ 
 	\hline 
-	spannungsrichtige Messung	& 1,938	& 19,51		& 100,34		\\ 
+	spannungsrichtige Messung	& 1,938	& 19,51		& 100,3		\\ 
 	\hline 
-	stromrichtige Messung		& 2		& 19,38		& 100,199		\\ 
+	stromrichtige Messung		& 2		& 19,38		& 100,2		\\ 
 	\hline 
 	\end{tabular}
 	\caption{Auswertung dieser Übung}
+	\label{tb:r_100k}
 \end{table}
-
+~\\
+Die spannungsrichtige Messung lieferte bei beiden Widerständen ein gutes Ergebnis. während die stromrichtige Messung bei dem Widerstand von $100 \Omega$ eine hohe Abweichung aufweist. Erwartet wurde ein genaues Ergebnis
+der stromrichtgen Messung bei dem $100 k\Omega$ Widerstand, sowie ein gutes Ergebnis
+der spannungsrichtigen Messung beim $100 \Omega$ Widerstand.
 
 \newpage
 
@@ -327,7 +332,7 @@ $50\Omega$
 \end{table}
 
 $High Imp.$
-\begin{table}[h]
+\begin{table}[!h]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 	\hline 
@@ -354,7 +359,7 @@ $High Imp.$
 
 \subsection{RMS im Detail}
 
-\begin{table}[h]
+\begin{table}[!h]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|}
 	\hline 
@@ -381,4 +386,32 @@ $High Imp.$
 	\end{tabular}
 	\caption{Auswertung dieser Übung}
 \end{table}
+
+\subsection{Amplitudenauflösung}
+~\\
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./img/ch1/aufloesung}
+  \caption{Quantisierungskennlinie}  
+\end{figure} 
+~\\
+
+\subsection{Dynamik}
+~\\
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./img/ch1/dynamik}
+  \caption{Dynamik des Oszilloskops bei unterschiedlichen Eingangskopplungen}  
+\end{figure} 
+~\\
+
+\subsection{Einschaltvorgang}
+~\\
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./img/ch1/einschaltvorgang}
+  \caption{Einschaltvorgang der Spannungsversorgung}  
+\end{figure} 
+~\\
+
 

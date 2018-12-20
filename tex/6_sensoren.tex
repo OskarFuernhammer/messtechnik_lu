@@ -131,7 +131,11 @@ Bei ausgeschalteter Glühfaserlampe und eingeschalteter Deckenbeleuchtung sah ma
 ~\\
 Zusätzlich ist noch aufgefallen, dass die Glühfaserlampe des Nachbartisches, die zwei bis drei Meter entfernt von dem Sensor stand, auf das Frequenzspektrum einen nahezu gleich ausgeprägten Einfluss hatte, wie die direkt darüber platzierte Glühfaserlampe.
 ~\\
-!!! oskar: Abb. (6 3 4 mitTischleuchte mitDeckenleuchte (bitte irgendwo weiter hinten im Kapitel einbinden)!!!!
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{./img/ch6/6_3_4_mitTischleuchte_mitDeckenleuchte}
+  \caption{caption}  
+\end{figure} 
 ~\\
 \section{Phasenselektiver Synchrongleichrichter (PSSG)}
 
@@ -148,7 +152,11 @@ Der Synchrongleichrichter braucht ein Steuersignal, das festlegt, wann das Messs
 ~\\
 Die Phasenverschiebung wurde durch ein Verzögerungsglied eingestellt. Die dafür erforderlichen Schritte errechnen sich durch $\Delta t = \dfrac{\varphi}{2} \cdot \pi \cdot f$ zu Schritte = $\dfrac{\Delta t}{Ta}$ !!! korrekt?!!!!. Für $45^\circ$  ergibt das 33,4, also 33 Schritte, für $90^\circ$  66,6, folglich 67 Schritte.
 ~\\
-!!! oskar: Abb. (6 3 5 67s 1 (bitte nach den Phasen einbauen) = Phase 90Grad verschoben)!!!!
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./img/ch6/6_3_5_67s_1}
+  \caption{caption}  
+\end{figure} 
 ~\\
 Nun sollte noch der Einfluss von Störungen auf die Messung betrachtet werden. Immer, wenn die Störfrequenz gleich ist der Messfrequenz, wird das Messergebnis beeinflusst. Dabei müssen auch die harmonischen Oberschwingungen des Rechtecksignals berücksichtigt werden, die der Synchrongleichrichter zum Invertieren des Signales benötigt. Andere Störeinflüsse, die weder mit der Frequenz des Messsignals, noch mit einer Harmonischen des Rechtecks zusammenfallen, werden sehr gut gefiltert und beeinflussen damit die Messung nicht. Wichtig ist noch, dass bei der Messung der Störung nicht genau mit der Frequenz des Messsignals gemessen wird, sondern mit einer um circa 0,1 bis 0,5 Hz versetzten Frequenz, da sonst die Störung als Gleichanteil auftritt und somit schwieriger als solche erkennbar ist.
 ~\\
@@ -156,8 +164,12 @@ Die hierbei betrachtete Störquelle ist wieder die Glühfadenlampe, die eine St�
 ~\\
 Die Messung ergab, entsprechend der Erwartung, eine Störung bei 20,1Hz, 33Hz und bei 100,1Hz, wobei man bei 100,1Hz die Störung am deutlichsten sehen kann. Weiters wurden die Frequenzen 50,5Hz, 75,1Hz, 125,1Hz, 150,2Hz, 175,5Hz und 200,1Hz gemessen, sie wiesen jedoch alle keine Störungen auf.
 ~\\
-!!! oskar: Abb. (6 3 5 100hz (eher am Ende einbinden, wo‘s passt) = Störung bei 100Hz)!!!!
-
+~\\
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./img/ch6/6_3_5_100Hz}
+  \caption{caption}  
+\end{figure} 
 
 \section{Phasenunabhängiger Synchrondemodulator (PUSD)}
 
